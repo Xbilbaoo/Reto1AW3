@@ -64,7 +64,7 @@ create table updateLogs(
 actionID int unsigned auto_increment primary key,
 affectedTable enum("users", "reservations","sessions","formations", "companys"),
 dataBeforeUpdate tinytext not null,
-deleteDate datetime not null
+updateDate datetime not null
 );
 
 
@@ -160,33 +160,6 @@ INSERT INTO reservations (userID, sessionID) VALUES
 ('18181818R', 8),
 ('19191919S', 9),
 ('20202020T', 10);
-
-
-INSERT INTO deleteLogs (actionID, affectedTable, dataBeforeDelete, deleteDate) VALUES
-(1, 'users', '{"userID": 5, "name": "Juan Pérez", "email": "juan@example.com"}', '2025-03-15'),
-(2, 'reservations', '{"reservationID": 12, "sessionID": 3, "userID": 7}', '2025-03-16'),
-(3, 'sessions', '{"sessionID": 8, "day": "2025-01-05", "hour": "17:45:00"}', '2025-03-17'),
-(4, 'formations', '{"formationID": 4, "name": "Diseño Gráfico"}', '2025-03-18'),
-(5, 'companys', '{"companyID": 2, "name": "Danza Viva"}', '2025-03-19'),
-(6, 'users', '{"userID": 9, "name": "Sofía Gómez"}', '2025-03-20'),
-(7, 'sessions', '{"sessionID": 5, "day": "2025-12-01", "hour": "09:00:00"}', '2025-03-21'),
-(8, 'reservations', '{"reservationID": 15, "sessionID": 4, "userID": 3}', '2025-03-22'),
-(9, 'formations', '{"formationID": 7, "name": "Teatro y Actuación"}', '2025-03-23'),
-(10, 'companys', '{"companyID": 5, "name": "Escuela de Teatro y Cine"}', '2025-03-24');
-
-INSERT INTO updateLogs (actionID, affectedTable, dataBeforeUpdate, deleteDate) VALUES
-(1, 'users', '{"userID": 3, "name": "Ana López", "email": "ana@example.com"}', '2025-03-15'),
-(2, 'reservations', '{"reservationID": 10, "sessionID": 2, "userID": 5}', '2025-03-16'),
-(3, 'sessions', '{"sessionID": 6, "day": "2025-12-10", "hour": "11:30:00"}', '2025-03-17'),
-(4, 'formations', '{"formationID": 2, "name": "Danza Contemporánea"}', '2025-03-18'),
-(5, 'companys', '{"companyID": 3, "name": "Orquesta Sinfónica"}', '2025-03-19'),
-(6, 'users', '{"userID": 8, "name": "Carlos Ramírez"}', '2025-03-20'),
-(7, 'sessions', '{"sessionID": 9, "day": "2026-01-15", "hour": "13:30:00"}', '2025-03-21'),
-(8, 'reservations', '{"reservationID": 18, "sessionID": 7, "userID": 2}', '2025-03-22'),
-(9, 'formations', '{"formationID": 6, "name": "Pintura al Óleo"}', '2025-03-23'),
-(10, 'companys', '{"companyID": 6, "name": "Escultura Moderna"}', '2025-03-24');
-
-
 
 
 
