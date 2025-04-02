@@ -56,7 +56,7 @@ create table deleteLogs(
 actionID int unsigned auto_increment primary key,
 affectedTable enum("users", "reservations","sessions","formations", "companys"),
 dataBeforeDelete tinytext not null,
-deleteDate date not null
+deleteDate datetime not null
 );
 
 
@@ -64,7 +64,7 @@ create table updateLogs(
 actionID int unsigned auto_increment primary key,
 affectedTable enum("users", "reservations","sessions","formations", "companys"),
 dataBeforeUpdate tinytext not null,
-deleteDate date not null
+deleteDate datetime not null
 );
 
 
