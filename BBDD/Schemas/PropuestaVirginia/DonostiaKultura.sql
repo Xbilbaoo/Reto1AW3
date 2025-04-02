@@ -1,7 +1,7 @@
 
 
-create database donostia_kultura;
-use donostia_kultura;
+create database donostiaKultura;
+use donostiaKultura;
 
 create table Users(
 dni varchar(9) PRIMARY KEY,
@@ -16,9 +16,9 @@ rol varchar(50) not null
 create table suggestions (
 SuggestionID int unsigned auto_increment primary key,
 description tinytext not null,
-user_name varchar(50) not null,
-user_email varchar(255) not null,
-suggestion_Date date
+userName varchar(50) not null,
+userEmail varchar(255) not null,
+suggestionDate date
 );
 
 create table companys (
