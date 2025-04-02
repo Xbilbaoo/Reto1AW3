@@ -7,7 +7,7 @@ create table Users(
 dni varchar(9) PRIMARY KEY,
 name varchar(50) not null,
 surname varchar(100),
-e-mail varchar(2500) not null,
+email varchar(2500) not null,
 password varchar(255) not null,
 phoneNumber varchar(50),
 rol varchar(50) not null
@@ -31,7 +31,7 @@ create table formations (
 formationID int unsigned auto_increment primary key,
 name varchar(50) not null,
 description tinytext DEFAULT 'No description available',
-peculiarity enum("english", null)
+peculiarity enum('english', '')
 );
 
 create table sessions(
