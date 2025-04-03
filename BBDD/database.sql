@@ -21,10 +21,10 @@ CREATE TABLE suggestions (
 	
 	CONSTRAINT fk_userEmail FOREIGN KEY (userEmail) REFERENCES users(email)
 		ON DELETE CASCADE
-        ON UPDATE CASCADE
+		ON UPDATE CASCADE
 );
 
-CREATE TABLE companys (
+CREATE TABLE companies (
     CIF VARCHAR(20) PRIMARY KEY, 
     name VARCHAR(50) NOT NULL UNIQUE, 
     address VARCHAR(250) NOT NULL
@@ -49,7 +49,7 @@ CREATE TABLE sessions (
         ON DELETE CASCADE
         ON UPDATE CASCADE, 
     
-	CONSTRAINT fk_companyName FOREIGN KEY (companyName) REFERENCES companys(name)
+	CONSTRAINT fk_companyName FOREIGN KEY (companyName) REFERENCES companies(name)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
@@ -61,28 +61,28 @@ CREATE TABLE reservations (
     
 	CONSTRAINT fk_userID FOREIGN KEY (userID) REFERENCES users(dni)
 		ON DELETE CASCADE
-        ON UPDATE CASCADE, 
+        	ON UPDATE CASCADE, 
     
 	CONSTRAINT fk_sessionID FOREIGN KEY (sessionID) REFERENCES sessions(sessionID)
-        ON DELETE RESTRICT
-        ON UPDATE CASCADE
+        	ON DELETE CASCADE
+        	ON UPDATE CASCADE
 );
 
 CREATE TABLE deleteLogs (
     actionID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companys', 'suggestions'), 
+    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companies', 'suggestions'), 
     dataBeforeDelete TINYTEXT NOT NULL, 
     deleteDate DATETIME NOT NULL
 );
 
 CREATE TABLE updateLogs (
     actionID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companys'), 
+    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companies','suggestions'), 
     dataBeforeUpdate TINYTEXT NOT NULL, 
     updateDate DATETIME NOT NULL
 );
 
-INSERT INTO companys (CIF, name, address) VALUES
+INSERT INTO companies (CIF, name, address) VALUES
 ('A12345678', 'Tecnalia', 'Parque Tecnológico de Gipuzkoa, 20009 Donostia, Gipuzkoa, España'),
 ('B23456789', 'Irizar', 'Calle Irizar 10, 20180 Oiarzun, Gipuzkoa, España'),
 ('C34567890', 'Danobat', 'Bº Lapatza 2, 20870 Elgoibar, Gipuzkoa, España'),
