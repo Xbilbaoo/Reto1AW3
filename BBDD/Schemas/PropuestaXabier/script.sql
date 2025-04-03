@@ -24,7 +24,7 @@ CREATE TABLE suggestions (
         ON UPDATE CASCADE
 );
 
-CREATE TABLE companys (
+CREATE TABLE companies (
     CIF VARCHAR(20) PRIMARY KEY, 
     name VARCHAR(50) NOT NULL UNIQUE, 
     address VARCHAR(250) NOT NULL
@@ -49,7 +49,7 @@ CREATE TABLE sessions (
         ON DELETE CASCADE
         ON UPDATE CASCADE, 
     
-	CONSTRAINT fk_companyName FOREIGN KEY (companyName) REFERENCES companys(name)
+	CONSTRAINT fk_companyName FOREIGN KEY (companyName) REFERENCES companies(name)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
@@ -70,14 +70,14 @@ CREATE TABLE reservations (
 
 CREATE TABLE deleteLogs (
     actionID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companys', 'suggestions'), 
+    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companies', 'suggestions'), 
     dataBeforeDelete TINYTEXT NOT NULL, 
     deleteDate DATETIME NOT NULL
 );
 
 CREATE TABLE updateLogs (
     actionID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companys'), 
+    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companies', 'suggestions'), 
     dataBeforeUpdate TINYTEXT NOT NULL, 
     updateDate DATETIME NOT NULL
 );
@@ -183,18 +183,18 @@ DELIMITER $$
 		
 		BEGIN
 				
-			INSERT INTO DeleteLogs (affectedTable, dataBeforeDelete, deleteDate) VALUES
-				('users', CONCAT('OldDNI: ', OLD.dni, ' | OldName: ', OLD.name, ' | OldSurname: ', OLD.surname, ' | OldEmail: ', OLD.email, ' | OldPassword: ', OLD.password, ' |  OldPhoneNumber: ', OLD.phoneNumber, ' | OldRol: ', OLD.rol), NOW());
+			INSERT INTO DeleteLogs (affectedTable, dataBeforeDelete, deleteDate) VALUES 
+			('users', CONCAT('OldDNI: ', OLD.dni, ' | OldName: ', OLD.name, ' | OldSurname: ', OLD.surname, ' | OldEmail: ', OLD.email, ' | OldPassword: ', OLD.password, ' |  OldPhoneNumber: ', OLD.phoneNumber, ' | OldRol: ', OLD.rol), NOW());
 
 		END $$
 		
 DELIMITER ;
 
-DROP TRIGGER IF EXISTS addDeleteSuggestion_and_Reservations;
+DROP TRIGGER IF EXISTS beforeDeleteLogUsers;
 
 DELIMITER $$
 
-CREATE TRIGGER addDeleteLogSuggestions_and_Reservations
+CREATE TRIGGER beforeDeleteLogUsers
     BEFORE DELETE
     ON users FOR EACH ROW
     BEGIN
@@ -218,9 +218,8 @@ CREATE TRIGGER addDeleteLogReservations
     ON reservations FOR EACH ROW
     BEGIN
         
-		INSERT INTO DeleteLogs (affectedTable, dataBeforeDelete, deleteDate)
-            VALUES
-            ('reservations', CONCAT('OldReservationID: ', OLD.reservationID, ' | OldUserID: ', OLD.userID, ' | OldSessionID: ', OLD.sessionID), NOW());
+		INSERT INTO DeleteLogs (affectedTable, dataBeforeDelete, deleteDate) VALUES 
+		('reservations', CONCAT('OldReservationID: ', OLD.reservationID, ' | OldUserID: ', OLD.userID, ' | OldSessionID: ', OLD.sessionID), NOW());
     END $$
 	
 DELIMITER ;
@@ -232,11 +231,65 @@ DELIMITER $$
 CREATE TRIGGER addDeleteLogSuggestions
     AFTER DELETE
     ON Suggestions FOR EACH ROW
-    BEGIN
-        INSERT INTO DeleteLogs (affectedTable, dataBeforeDelete, deleteDate)
-            VALUES
-            ('suggestions', CONCAT('OldSuggestionID: ', OLD.SuggestionID, ' , OldUserEmail: ', OLD.userEmail, ' , OldDescription: ', OLD.description), NOW());
+    
+	BEGIN
+        
+		INSERT INTO DeleteLogs (affectedTable, dataBeforeDelete, deleteDate) VALUES 
+		('suggestions', CONCAT('OldSuggestionID: ', OLD.SuggestionID, ' | OldUserEmail: ', OLD.userEmail, ' | OldDescription: ', OLD.description), NOW());
+		
     END $$
 
 DELIMITER ;
 
+DROP TRIGGER IF EXISTS addDeleteLogFormations;
+
+DELIMITER $$
+
+	CREATE TRIGGER addDeleteLogFormations
+	
+	AFTER DELETE
+	
+	ON formations FOR EACH ROW 
+	
+	BEGIN
+		
+		INSERT INTO DeleteLogs (affectedTable,  dataBeforeDelete, deleteDate) VALUES 
+		('formations', CONCAT('OldFormationID: ', OLD.formationID, ' | OLdFormationName: ', OLD.name, ' | OldDescription: ', OLD.description, ' | OldPeculiarity: ', OLD.peculiarity), NOW());
+		
+	END $$
+	
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS beforeDeleteLogFormations;
+
+DELIMITER $$
+
+	CREATE TRIGGER beforeDeleteLogFormations
+	
+	BEFORE DELETE 
+	
+	ON formations FOR EACH ROW
+	
+	BEGIN
+	
+		DELETE FROM sessions
+			WHERE formationID = OLD.formationID;
+			
+	END $$
+	
+DELIMITER ;
+			
+DROP TRIGGER IF EXISTS addDeleteLogSessions;
+
+DELIMITER $$
+
+	CREATE TRIGGER addDeleteLogSessions
+	
+	AFTER DELETE
+	
+	ON sessions FOR EACH ROW
+	
+	BEGIN
+	
+		INSERT INTO DeleteLogs (affectedTable,  dataBeforeDelete, deleteDate) VALUES 
+		('sessions', CONCAT('OldSessionID: ', OLD.sessionID, ' | OldDay: ', OLD.day, ' | OldHour: ', OLD.hour, ' | OldCapacity: ',
