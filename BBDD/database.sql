@@ -24,7 +24,7 @@ CREATE TABLE suggestions (
 		ON UPDATE CASCADE
 );
 
-CREATE TABLE companys (
+CREATE TABLE companies (
     CIF VARCHAR(20) PRIMARY KEY, 
     name VARCHAR(50) NOT NULL UNIQUE, 
     address VARCHAR(250) NOT NULL
