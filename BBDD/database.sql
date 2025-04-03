@@ -70,14 +70,14 @@ CREATE TABLE reservations (
 
 CREATE TABLE deleteLogs (
     actionID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companys', 'suggestions'), 
+    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companies', 'suggestions'), 
     dataBeforeDelete TINYTEXT NOT NULL, 
     deleteDate DATETIME NOT NULL
 );
 
 CREATE TABLE updateLogs (
     actionID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companys'), 
+    affectedTable ENUM('users', 'reservations', 'sessions', 'formations', 'companies','suggestions'), 
     dataBeforeUpdate TINYTEXT NOT NULL, 
     updateDate DATETIME NOT NULL
 );
