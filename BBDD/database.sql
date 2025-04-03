@@ -49,7 +49,7 @@ CREATE TABLE sessions (
         ON DELETE CASCADE
         ON UPDATE CASCADE, 
     
-	CONSTRAINT fk_companyName FOREIGN KEY (companyName) REFERENCES companys(name)
+	CONSTRAINT fk_companyName FOREIGN KEY (companyName) REFERENCES companies(name)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
@@ -82,7 +82,7 @@ CREATE TABLE updateLogs (
     updateDate DATETIME NOT NULL
 );
 
-INSERT INTO companys (CIF, name, address) VALUES
+INSERT INTO companies (CIF, name, address) VALUES
 ('A12345678', 'Tecnalia', 'Parque Tecnológico de Gipuzkoa, 20009 Donostia, Gipuzkoa, España'),
 ('B23456789', 'Irizar', 'Calle Irizar 10, 20180 Oiarzun, Gipuzkoa, España'),
 ('C34567890', 'Danobat', 'Bº Lapatza 2, 20870 Elgoibar, Gipuzkoa, España'),
