@@ -61,11 +61,11 @@ CREATE TABLE reservations (
     
 	CONSTRAINT fk_userID FOREIGN KEY (userID) REFERENCES users(dni)
 		ON DELETE CASCADE
-        ON UPDATE CASCADE, 
+        	ON UPDATE CASCADE, 
     
 	CONSTRAINT fk_sessionID FOREIGN KEY (sessionID) REFERENCES sessions(sessionID)
-        ON DELETE RESTRICT
-        ON UPDATE CASCADE
+        	ON DELETE CASCADE
+        	ON UPDATE CASCADE
 );
 
 CREATE TABLE deleteLogs (
