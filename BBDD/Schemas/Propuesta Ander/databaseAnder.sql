@@ -140,7 +140,6 @@ END $$
 
 DELIMITER ;
 --Ejemplo para comprobar trigger
-UPDATE sessions SET sessionID = 99 WHERE sessionID = 1;
 
 --TRIGGER UPDATE RESERVATIONS--
 DELIMITER $$

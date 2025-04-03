@@ -82,7 +82,7 @@ CREATE TABLE updateLogs (
     updateDate DATETIME NOT NULL
 );
 
-INSERT INTO companys (CIF, name, address) VALUES
+INSERT INTO companies (CIF, name, address) VALUES
 ('A12345678', 'Tecnalia', 'Parque Tecnológico de Gipuzkoa, 20009 Donostia, Gipuzkoa, España'),
 ('B23456789', 'Irizar', 'Calle Irizar 10, 20180 Oiarzun, Gipuzkoa, España'),
 ('C34567890', 'Danobat', 'Bº Lapatza 2, 20870 Elgoibar, Gipuzkoa, España'),
@@ -292,4 +292,65 @@ DELIMITER $$
 	BEGIN
 	
 		INSERT INTO DeleteLogs (affectedTable,  dataBeforeDelete, deleteDate) VALUES 
-		('sessions', CONCAT('OldSessionID: ', OLD.sessionID, ' | OldDay: ', OLD.day, ' | OldHour: ', OLD.hour, ' | OldCapacity: ',
+		('sessions', CONCAT('OldSessionID: ', OLD.sessionID, ' | OldDay: ', OLD.day, ' | OldHour: ', OLD.hour, ' | OldCapacity: ', OLD.capacity, ' | OldFormationID: ', OLD.formationID, ' | OldCompanyName: ', OLD.companyName), NOW());
+
+    END $$
+
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS beforeDeleteLogSessions;
+
+DELIMITER $$
+
+    CREATE TRIGGER beforeDeleteLogSessions
+    
+    BEFORE DELETE
+    
+    ON sessions FOR EACH ROW
+    
+    BEGIN
+    
+        DELETE FROM reservations
+            WHERE sessionID = OLD.sessionID;
+            
+    END $$
+
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS addDeleteLogCompanies;
+
+DELIMITER $$
+
+    CREATE TRIGGER addDeleteLogCompanies
+    
+    AFTER DELETE
+    
+    ON companies FOR EACH ROW
+    
+    BEGIN
+        
+        INSERT INTO DeleteLogs (affectedTable,  dataBeforeDelete, deleteDate) VALUES 
+        ('companies', CONCAT('OldCIF: ', OLD.CIF, ' | OldName: ', OLD.name, ' | OldAddress: ', OLD.address), NOW());
+        
+    END $$
+
+DELIMITER ; 
+
+DROP TRIGGER IF EXISTS beforeDeleteLogCompanies;
+
+DELIMITER $$
+
+    CREATE TRIGGER beforeDeleteLogCompanies
+    
+    BEFORE DELETE
+    
+    ON companies FOR EACH ROW
+    
+    BEGIN
+    
+        DELETE FROM sessions
+            WHERE companyName = OLD.name;
+            
+    END $$
+
+DELIMITER ;
