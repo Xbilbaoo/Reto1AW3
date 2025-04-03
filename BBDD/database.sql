@@ -21,7 +21,7 @@ CREATE TABLE suggestions (
 	
 	CONSTRAINT fk_userEmail FOREIGN KEY (userEmail) REFERENCES users(email)
 		ON DELETE CASCADE
-        ON UPDATE CASCADE
+		ON UPDATE CASCADE
 );
 
 CREATE TABLE companys (
