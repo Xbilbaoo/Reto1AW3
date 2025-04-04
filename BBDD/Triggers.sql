@@ -274,7 +274,7 @@ AFTER UPDATE ON companies
 FOR EACH ROW
 BEGIN 
 
-	UPDATE sessions SET companyName = NEW.name WHERE companyName LIKE OLD.name; 
+	    UPDATE formations SET companyID = NEW.CIF WHERE companyID LIKE OLD.CIF; 
 	
     INSERT INTO updateLogs (affectedTable, dataBeforeUpdate, updateDate)
     VALUES (
@@ -310,7 +310,7 @@ BEGIN
             '| Name: ', IFNULL(OLD.name, 'NULL'),
             '| Description : ', IFNULL(OLD.description, 'NULL'),			
             '| Peculiarity: ', IFNULL(OLD.peculiarity, 'NULL'),
-            '| CompanyID: 'IFNULL(OLD.peculiarity, 'NULL'),
+            '| CompanyID: 'IFNULL(OLD.CompanyID, 'NULL'),
             '}')
 			, 
         NOW()
