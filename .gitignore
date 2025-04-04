@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 /bin/
+=======
+#Files that whe want to not push
+
+PROG/.classpath
+PROG/.project
+PROG/bin/
+>>>>>>> 0191a8da1a2bc6777702e7258da65fe82a296f6d
