@@ -170,8 +170,8 @@ DELIMITER $$
     
     BEGIN
     
-        DELETE FROM sessions
-            WHERE companyName = OLD.name;
+        DELETE FROM formation
+		WHERE companyID = OLD.CIF;
             
     END $$
 
