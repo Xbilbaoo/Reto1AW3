@@ -66,7 +66,7 @@ DELIMITER $$
 	BEGIN
 		
 		INSERT INTO DeleteLogs (affectedTable,  dataBeforeDelete, deleteDate) VALUES 
-		('formations', CONCAT('OldFormationID: ', OLD.formationID, ' | OLdFormationName: ', OLD.name, ' | OldDescription: ', OLD.description, ' | OldPeculiarity: ', OLD.peculiarity), NOW());
+		('formations', CONCAT('OldFormationID: ', OLD.formationID, ' | OLdFormationName: ', OLD.name, ' | OldDescription: ', OLD.description, ' | OldPeculiarity: ', OLD.peculiarity, ' | OldCompanyID: 'OLD.companyID), NOW());
 		
 	END $$
 	
@@ -108,7 +108,7 @@ DELIMITER $$
 	BEGIN
 	
 		INSERT INTO DeleteLogs (affectedTable,  dataBeforeDelete, deleteDate) VALUES 
-		('sessions', CONCAT('OldSessionID: ', OLD.sessionID, ' | OldDay: ', OLD.day, ' | OldHour: ', OLD.hour, ' | OldCapacity: ', OLD.capacity, ' | OldFormationID: ', OLD.formationID, ' | OldCompanyName: ', OLD.companyName), NOW());
+		('sessions', CONCAT('OldSessionID: ', OLD.sessionID, ' | OldDay: ', OLD.day, ' | OldHour: ', OLD.hour, ' | OldCapacity: ', OLD.capacity, ' | OldFormationID: ', OLD.formationID), NOW());
 
     END $$
 
@@ -310,6 +310,7 @@ BEGIN
             '| Name: ', IFNULL(OLD.name, 'NULL'),
             '| Description : ', IFNULL(OLD.description, 'NULL'),			
             '| Peculiarity: ', IFNULL(OLD.peculiarity, 'NULL'),
+            '| CompanyID: 'IFNULL(OLD.peculiarity, 'NULL'),
             '}')
 			, 
         NOW()
@@ -337,7 +338,6 @@ BEGIN
             '| Hour : ', IFNULL(OLD.hour, 'NULL'),			
             '| Capacity : ', IFNULL(OLD.capacity, 'NULL'),
 			'| formationID : ', IFNULL(OLD.formationID, 'NULL'),
-            '| Company Name : ', IFNULL(OLD.companyName, 'NULL'),
             '}')
 			, 
         NOW()

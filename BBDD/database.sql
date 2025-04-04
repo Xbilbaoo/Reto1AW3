@@ -34,7 +34,12 @@ CREATE TABLE formations (
     formationID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
     name VARCHAR(50) NOT NULL, 
     description TINYTEXT DEFAULT 'No description available', 
-    peculiarity ENUM('english', '')
+    peculiarity ENUM('english', 'Other'),
+    companyID VARCHAR(20),
+
+    	CONSTRAINT fk_companyID FOREIGN KEY (companyID) REFERENCES companies(CIF)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE sessions (
@@ -43,13 +48,8 @@ CREATE TABLE sessions (
     hour TIME NOT NULL, 
     capacity INT UNSIGNED NOT NULL, 
     formationID INT UNSIGNED NULL, 
-    companyName VARCHAR(50) NULL, 
    
 	CONSTRAINT fk_formationID FOREIGN KEY (formationID) REFERENCES formations(formationID)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE, 
-    
-	CONSTRAINT fk_companyName FOREIGN KEY (companyName) REFERENCES companies(name)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
@@ -82,89 +82,70 @@ CREATE TABLE updateLogs (
     updateDate DATETIME NOT NULL
 );
 
-INSERT INTO companies (CIF, name, address) VALUES
-('A12345678', 'Tecnalia', 'Parque Tecnológico de Gipuzkoa, 20009 Donostia, Gipuzkoa, España'),
-('B23456789', 'Irizar', 'Calle Irizar 10, 20180 Oiarzun, Gipuzkoa, España'),
-('C34567890', 'Danobat', 'Bº Lapatza 2, 20870 Elgoibar, Gipuzkoa, España'),
-('D45678901', 'CAF', 'Calle Padre José de Arce, 2, 20200 Beasain, Gipuzkoa, España'),
-('E56789012', 'KUKA Robotics', 'Paseo del Molino, 4, 20012 Donostia, Gipuzkoa, España'),
-('F67890123', 'Orona', 'Polígono Industrial Agustinas, 20400 Tolosa, Gipuzkoa, España'),
-('G78901234', 'IK4-TEKNIKER', 'Calle Ibaiondo 12, 20500 Arrasate-Mondragón, Gipuzkoa, España'),
-('H89012345', 'Sener', 'Calle Zubieta, 2, 20018 Donostia, Gipuzkoa, España'),
-('I90123456', 'Ibermática', 'Calle José María Soroa, 13, 20018 Donostia, Gipuzkoa, España'),
-('J01234567', 'Siemens Gamesa', 'Calle José Elosegui 45, 20015 Donostia, Gipuzkoa, España');
-
-INSERT INTO formations (name, description, peculiarity) VALUES
-('Robótica 101', 'Introducción a los fundamentos de la robótica, desde la teoría hasta la aplicación práctica.', 'ingles'),
-('IA y Aprendizaje Automático', 'Aprende cómo la IA está transformando industrias y profundiza en técnicas de aprendizaje automático.', ''),
-('Robótica Avanzada', 'Explora temas avanzados de robótica, incluyendo visión robótica e integración de IA.', 'ingles'),
-('Sistemas de Energía Sostenible', 'Enfoque en fuentes de energía renovable y sus aplicaciones tecnológicas.', ''),
-('Tecnologías de la Salud', 'Entiende las últimas tecnologías en salud y sus aplicaciones en el mundo real.', 'ingles'),
-('Ciudades Inteligentes', 'Estudia los avances tecnológicos que están transformando las ciudades en entornos sostenibles e inteligentes.', ''),
-('Ciberseguridad para la Industria', 'Profundiza en los protocolos de seguridad y las tecnologías diseñadas para proteger los sistemas industriales.', 'ingles'),
-('Ciencia de Datos y Big Data', 'Aprende cómo Big Data está moldeando el futuro y cómo aprovechar los datos para la ventaja empresarial.', ''),
-('Vehículos Autónomos', 'Aprende las tecnologías detrás de los vehículos autónomos, desde los sensores hasta los algoritmos de IA.', 'ingles'),
-('Transformación Digital en los Negocios', 'Entiende cómo las herramientas digitales están remodelando los negocios y la economía moderna.', '');
-
+--DATOS USERS--
 INSERT INTO users (dni, name, surname, email, password, phoneNumber, rol) VALUES
-('12345678A', 'Naruto', 'Uzumaki', 'naruto.uzumaki@example.com', '$2y$10$abcdefghijk1234567890123456789012345678901234567890', '123456789', 'admin'),
-('23456789B', 'Pau', 'Gasol', 'pau.gasol@example.com', '$2y$10$zyxwvutsrqpo9876543210987654321098765432109876543210', '123456789', 'moderator'),
-('34567890C', 'Rafa', 'Nadal', 'rafa.nadal@example.com', '$2y$10$abcdefghijk1234567890123456789012345678901234567890', '456789123', 'user'),
-('45678901D', 'Saitama', 'One Punch', 'saitama.punch@example.com', '$2y$10$1234567890qwertyuiopasdfghjklzxcvbnm1234567890123', '1122334455', 'editor'),
-('56789012E', 'Iker', 'Casillas', 'iker.casillas@example.com', '$2y$10$abcdefghijk1234567890123456789012345678901234567890', '987654321', 'user'),
-('67890123F', 'Luffy', 'Monkey D.', 'luffy.monkey@example.com', '$2y$10$lmnopqrstuvwxyz1234567890123456789012345678901234', '654321987', 'moderator'),
-('78901234G', 'Mia', 'Martinez', 'mia.martinez@example.com', '$2y$10$abcdefg1234567890123456789012345678901234567890', '987654321', 'admin'),
-('89012345H', 'Olivia', 'Lopez', 'olivia.lopez@example.com', '$2y$10$abcdefg1234567890123456789012345678901234567890', '345678901', 'user'),
-('90123456I', 'Fernando', 'Alonso', 'fernando.alonso@example.com', '$2y$10$zyxwvutsrqpo9876543210987654321098765432109876543210', '654321987', 'admin'),
-('01234567J', 'Carlos', 'Hernandez', 'carlos.hernandez@example.com', '$2y$10$abcdefg1234567890123456789012345678901234567890', '456789012', 'editor'),
-('12345678K', 'Liam', 'Gomez', 'liam.gomez@example.com', '$2y$10$abcdefg1234567890123456789012345678901234567890', '234567890', 'moderator'),
-('23456789L', 'Goku', 'Son', 'goku.son@example.com', '$2y$10$qwertyuiopasdfghjklzxcvbnm123456789012345678901234', '1122334455', 'editor'),
-('34567890M', 'John', 'Doe', 'john.doe@example.com', '$2y$10$abcdefg1234567890123456789012345678901234567890', '678901234', 'user'),
-('45678901N', 'Sara', 'Simón', 'sara.simon@example.com', '$2y$10$1234567890qwertyuiopasdfghjklzxcvbnm1234567890123', '9988776655', 'user'),
-('56789012O', 'Sakura', 'Haruno', 'sakura.haruno@example.com', '$2y$10$zyxwvutsrqpo9876543210987654321098765432109876543210', '987654321', 'user');
+('12345678A', 'Aitor', 'Lopez', 'aitor.lopez@email.com', 'password123', '600123456', 'admin'),
+('23456789B', 'Amaia', 'Garcia', 'amaia.garcia@email.com', 'password123', '600234567', 'user'),
+('34567890C', 'Iker', 'Martinez', 'iker.martinez@email.com', 'password123', '600345678', 'user'),
+('45678901D', 'Jon', 'Lasa', 'jon.lasa@email.com', 'password123', '600456789', 'user'),
+('56789012E', 'Miren', 'Aranburu', 'miren.aranburu@email.com', 'password123', '600567890', 'user'),
+('67890123F', 'Nerea', 'Agirre', 'nerea.agirre@email.com', 'password123', '600678901', 'user'),
+('78901234G', 'Markel', 'Etxeberria', 'markel.etxeberria@email.com', 'password123', '600789012', 'user'),
+('89012345H', 'Irati', 'Zubia', 'irati.zubia@email.com', 'password123', '600890123', 'user'),
+('90123456I', 'Ander', 'Aldaz', 'ander.aldaz@email.com', 'password123', '600901234', 'user'),
+('01234567J', 'Leire', 'Garmendia', 'leire.garmendia@email.com', 'password123', '600012345', 'user');
 
-INSERT INTO sessions (day, hour, capacity, formationID, companyName) VALUES
-('2025-04-01', '09:00:00', 50, 1, 'Tecnalia'),
-('2025-04-01', '11:00:00', 50, 2, 'Irizar'),
-('2025-04-02', '09:00:00', 30, 3, 'Danobat'),
-('2025-04-02', '14:00:00', 40, 4, 'CAF'),
-('2025-04-03', '10:00:00', 60, 5, 'KUKA Robotics'),
-('2025-04-03', '12:00:00', 35, 6, 'Orona'),
-('2025-04-04', '09:00:00', 50, 7, 'IK4-TEKNIKER'),
-('2025-04-04', '11:00:00', 60, 8, 'Sener'),
-('2025-04-05', '09:00:00', 45, 9, 'Ibermática'),
-('2025-04-05', '11:00:00', 40, 10, 'Siemens Gamesa');
+--DATOS COMPANIES--
+INSERT INTO companies (CIF, name, address) VALUES
+('B12345678', 'CultureCo', 'Avenida de la Cultura, 1, Donostia'),
+('B23456789', 'LearnCorp', 'Calle del Aprendizaje, 23, Donostia'),
+('B34567890', 'LanguageHub', 'Plaza del Idioma, 5, Donostia'),
+('B45678901', 'CulturalRoots', 'Camino Antiguo, 12, Donostia'),
+('B56789012', 'EduAdvance', 'Calle Nueva, 34, Donostia');
 
+--DATOS FORMATIONS--
+INSERT INTO formations (name, description, peculiarity, companyID) VALUES
+('Introduction to Basque Culture', 'A course about Basque language and traditions.', 'Other', 'B12345678'),
+('Advanced English Workshop', 'High-level English training for professionals.', 'english', 'B23456789'),
+('Spanish Language Immersion', 'Intensive Spanish for foreigners.', 'Other', 'B34567890'),
+('Cultural Awareness Seminar', 'Understanding local cultures and diversity.', 'Other', 'B45678901'),
+('Creative Writing Workshop', 'Writing techniques for storytelling.', 'Other', 'B56789012');
+
+--DATOS SESSIONS--
+INSERT INTO sessions (day, hour, capacity, formationID) VALUES
+('2025-04-10', '10:00:00', 30, 1),
+('2025-04-11', '14:00:00', 25, 1),
+('2025-04-12', '09:00:00', 20, 2),
+('2025-04-13', '15:00:00', 15, 2),
+('2025-04-14', '11:00:00', 25, 3),
+('2025-04-15', '16:00:00', 20, 3),
+('2025-04-16', '08:00:00', 30, 4),
+('2025-04-17', '10:00:00', 30, 4),
+('2025-04-18', '12:00:00', 15, 5),
+('2025-04-19', '17:00:00', 10, 5);
+
+--DATOS RESERVATIONS--
 INSERT INTO reservations (userID, sessionID) VALUES
-('12345678A', 5),
-('23456789B', 1),
-('34567890C', 9),
-('45678901D', 3),
-('56789012E', 7),
-('67890123F', 2),
-('78901234G', 4),
-('89012345H', 10),
-('90123456I', 6),
-('01234567J', 8),
-('12345678K', 2),
-('23456789L', 6),
-('34567890M', 4),
-('45678901N', 10),
-('56789012O', 5);
+('12345678A', 1),
+('23456789B', 2),
+('34567890C', 3),
+('45678901D', 4),
+('56789012E', 5),
+('67890123F', 6),
+('78901234G', 7),
+('89012345H', 8),
+('90123456I', 9),
+('01234567J', 10);
 
+--DATOS SUGGESTIONS--
 INSERT INTO suggestions (description, userEmail, suggestionDate) VALUES
-('Los horarios de las sesiones son muy temprano. Sería mejor tenerlos por la tarde.', 'naruto.uzumaki@example.com', '2025-04-01'),
-('Creo que el contenido de la sesión 3 podría ser más interactivo con estudios de caso.', 'pau.gasol@example.com', '2025-04-02'),
-('Por favor, agreguen más sesiones centradas en robótica avanzada.', 'rafa.nadal@example.com', '2025-04-03'),
-('La sesión estuvo bien, pero el equipo técnico no funcionaba bien durante la demostración.', 'saitama.punch@example.com', '2025-04-04'),
-('¿Podrían agregar más ejemplos del sector sanitario en la próxima sesión?', 'iker.casillas@example.com', '2025-04-05'),
-('Me gustaría ver más talleres prácticos en las próximas sesiones.', 'luffy.monkey@example.com', '2025-04-06'),
-('La sesión estuvo bien, pero me gustaría ver más sobre las prácticas de sostenibilidad medioambiental.', 'mia.martinez@example.com', '2025-04-07'),
-('Sería bueno tener más oportunidades de networking al final del evento.', 'olivia.lopez@example.com', '2025-04-08'),
-('Me gustó la sesión, pero no hubo suficientes oportunidades para hacer preguntas.', 'fernando.alonso@example.com', '2025-04-09'),
-('¿Podemos obtener más detalles sobre las futuras tendencias tecnológicas en las próximas sesiones?', 'carlos.hernandez@example.com', '2025-04-10'),
-('Tal vez podrían ofrecer más actividades grupales para fomentar la colaboración en equipo.', 'liam.gomez@example.com', '2025-04-11'),
-('Me gustaría ver más estudios de caso sobre la transformación empresarial global en las sesiones.', 'goku.son@example.com', '2025-04-12'),
-('¿Podrían extender el tiempo de las sesiones? A veces se sienten apresuradas.', 'john.doe@example.com', '2025-04-13'),
-('Debería haber una sesión dedicada específicamente a los problemas éticos en la IA.', 'sara.simon@example.com', '2025-04-14'),
-('Creo que podríamos beneficiarnos de una sesión de seguimiento para profundizar más en los temas tratados.', 'sakura.haruno@example.com', '2025-04-15');
+('Would love to see more workshops related to local history.', 'aitor.lopez@email.com', '2025-04-01'),
+('Can you organize online sessions for English training?', 'amaia.garcia@email.com', '2025-04-02'),
+('It would be great if sessions were available on weekends.', 'iker.martinez@email.com', '2025-04-03'),
+('More workshops on Basque folklore would be nice.', 'jon.lasa@email.com', '2025-04-04'),
+('Can you provide materials after the sessions?', 'miren.aranburu@email.com', '2025-04-05'),
+('Sessions during evenings would be helpful.', 'nerea.agirre@email.com', '2025-04-06'),
+('I would love to see cultural tours as well.', 'markel.etxeberria@email.com', '2025-04-07'),
+('Could you do a workshop focused on local gastronomy?', 'irati.zubia@email.com', '2025-04-08'),
+('Consider adding free trial sessions for new members.', 'ander.aldaz@email.com', '2025-04-09'),
+('More weekend events, please!', 'leire.garmendia@email.com', '2025-04-10');
