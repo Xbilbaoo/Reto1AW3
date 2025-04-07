@@ -312,7 +312,7 @@ BEGIN
             '| Name: ', IFNULL(OLD.name, 'NULL'),
             '| Description : ', IFNULL(OLD.description, 'NULL'),			
             '| Peculiarity: ', IFNULL(OLD.peculiarity, 'NULL'),
-            '| CompanyID: 'IFNULL(OLD.CompanyID, 'NULL'),
+            '| CompanyID: ', IFNULL(OLD.CompanyID, 'NULL'),
             '}')
 			, 
         NOW()
