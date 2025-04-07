@@ -218,7 +218,9 @@ DELIMITER $$
 
 DELIMITER ;
 
---TRIGGER UPDATE USERS--
+/*
+ * TRIGGERS de actualizado.
+*/
 DELIMITER $$
 CREATE TRIGGER AddLogUpdateUsers
 AFTER UPDATE ON Users 
