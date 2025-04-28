@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+
+
+        }
+
+        .verde {
+            background-color: green;
+            width: 40%;
+            margin-right: 50px;
+            height: 8vh;
+        }
+
+        .gris {
+            background-color: grey;
+            width: 60%;
+            height: 4vh;
+
+            align-self: center;
+
+        }
+
+        .azul {
+            background-color: blue;
+            height: 6vh;
+            margin-bottom: 10px;
+
+        }
+
+        .rosa {
+            background-color: pink;
+            height: 40vh;
+            margin-bottom: 4px;
+        }
+
+        .naranjas {
+            display: flex;
+        }
+
+        .n1 {
+            background-color: orange;
+            margin-right: 15px;
+            width: 50%;
+            height: 40vh;
+            margin-bottom: 8px;
+
+        }
+
+        .n2 {
+            width: 50%;
+            background-color: orange;
+            margin-bottom: 8px;
+
+
+
+        }
+        .footer{
+            background-color: blueviolet;
+            height: 10vh;
+        
+        }
+
+
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+            .naranjas {
+                display: block;
+
+            }
+
+            .rosa {
+                margin-bottom: 10px;
+                height: 60vh
+            }
+
+            .n1 {
+                margin-bottom: 5px;
+                height: 20vh;
+                width: 100%;
+
+            }
+
+            .n2 {
+                width: 100%;
+                height: 20vh;
+
+            }
+        }
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width: 992px) {
+            .t{
+                display: flex;
+            }
+            .rosa{
+                margin-right: 8px;
+                height: 80vh;
+                width: 70%;
+                
+            }
+
+            .n1{
+                height: 20vh ;
+                width: 600%;
+
+            }
+
+            .n2{
+                width: 80%;
+                height: 59vh ;
+                width: 600%;
+
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="verde">verde</div>
+        <div class="gris">gris</div>
+
+    </div>
+    <div class="azul">azul</div>
+    <div class="t">
+        <div class="rosa">rosa</div>
+        <div class="naranjas">
+            <div class="naranja n1">naranja 1</div>
+            <div class="naranja n2">naranja 2</div>
+        </div>
+    </div>
+    <div class="footer">footer</div>
+
+
+
+
+</body>
+
+</html>
