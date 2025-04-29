@@ -1,0 +1,334 @@
+@media (max-width: 576px) {
+
+    .flex-container {
+        height: 700px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    header {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    main {    
+        height: 40%;
+        width: 100%;
+        display: flex;
+        padding-top: 30px;
+    }
+
+    aside {
+        height: 50%;
+        width: 100%;
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer {
+        height: 20%;
+        width: 96%;
+        margin-top: 20px;
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: black;
+    }
+
+    header > div:nth-child(1) {
+
+        background-color: chartreuse;
+        height: 40%;
+        width: 30%;
+        margin-left: 2%;
+    }
+
+    header > div:nth-child(2) {
+
+        background-color: grey;
+        width: 30%;
+        height: 25%;
+        margin-right: 2%;
+        align-self: flex-end;
+    }
+
+    header > div:nth-child(3) {
+
+        background-color: dodgerblue;
+        width: 96%;
+        height: 40%;
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 2%;
+    }
+
+    main > div {
+        background-color: fuchsia;
+        height: 100%;
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    aside > div:nth-child(1) {
+
+        background-color: orange;
+        width: 44%;
+        height: 100%;
+        margin-left: 2%;
+        
+    }
+
+    aside > div:nth-child(2) {
+
+        background-color: orange;
+        width: 44%;
+        height: 100%;
+        margin-right: 2%;
+        
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991px){
+
+    .flex-container {
+        height: 700px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    header {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    main {    
+        height: 40%;
+        width: 100%;
+        display: flex;
+        padding-top: 30px;
+    }
+
+    aside {
+        height: 40%;
+        width: 100%;
+        padding-top: 30px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-between;
+    }
+
+    footer {
+
+        height: 30%;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: black;
+    }
+
+    header > div:nth-child(1) {
+
+        background-color: chartreuse;
+        height: 40%;
+        width: 30%;
+        margin-left: 2%;
+        display: flex;
+    }
+
+    header > div:nth-child(2) {
+
+        background-color: grey;
+        width: 30%;
+        height: 25%;
+        margin-right: 2%;
+        align-self: flex-end;
+    }
+
+    header > div:nth-child(3) {
+
+        background-color: dodgerblue;
+        width: 100%;
+        height: 40%;
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 2%;
+    }
+
+    main > div {
+        background-color: fuchsia;
+        height: 100%;
+        width: 100%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    aside > div:nth-child(1) {
+
+        background-color: orange;
+        width: 100%;
+        height: 45%;
+        margin-left: 2%;
+        margin-right: 2%;
+        order: 2;
+        
+    }
+
+    aside > div:nth-child(2) {
+
+        background-color: orange;
+        width: 100%;
+        height: 45%;
+        margin-left: 2%;
+        margin-right: 2%;
+        order: 1;
+        
+    }
+
+    .little-card {
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        
+    }
+
+
+}
+
+@media (min-width: 992px) {
+
+    .flex-container {
+        height: 700px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 15%;
+        width: 100%;
+    }
+
+    main {
+        width: 70%;
+        height: 100%;
+        margin-top: 8%;
+        padding-left: 2%;
+        display: flex;   
+    }
+
+    aside {
+        height: 100%;
+        width: 30%;
+        margin-top: 8%;
+        padding-right: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    footer {
+        height: 10%;
+        width: 100%;
+        margin-top: 10px;
+        background-color: #1c2c4c;
+        display: flex;
+    }
+    
+    header > div:nth-child(1) {
+        background-color: chartreuse;
+        margin-top: 2%;
+        margin-left: 2%;
+        height: 90%;
+        width: 35%;
+    }
+    
+    header > div:nth-child(2) {
+        background-color: grey;
+        margin-top: 2%;
+        margin-right: 2%;
+        height: 55%;
+        width: 35%;
+        align-self: flex-end;
+    }
+    
+    header > div:nth-child(3) {
+        background-color: dodgerblue;
+        margin-top: 1%;
+        margin-left: 2%;
+        margin-right: 2%;
+        height: 50%;
+        width: 100%;
+    }
+    
+    main > div {
+        background-color: fuchsia;      
+        height: 100%;
+        width: 100%;
+        margin-right: 2%;
+    }
+    
+    aside > div:nth-child(1) {
+        background-color: orange;
+        height: 20%;
+        width: 100%;
+    }
+    
+    aside > div:nth-child(2) {
+        height: 75%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+    aside > div:nth-child(2) > .card {
+        margin: 2%;
+        height: 46%;
+    }
+
+    aside > div:nth-child(2) > .card > .card-img-top {
+        height: 50%;
+        object-fit: cover;
+    }
+
+    aside > div:nth-child(2) > .card > .card-body {
+        padding: 2%
+    }
+
+    aside > div:nth-child(2) > .card > .card-body > .card-text {
+        text-align: justify;
+    }
+
+    footer > .footer-logo {
+        width: 3.5%;
+        height: 85%;
+        margin: 10px;
+    }
+
+    footer > p {
+        margin: auto;
+        font-weight: bold;
+        color: white;
+    }
+}
