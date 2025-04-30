@@ -17,7 +17,7 @@
         flex-wrap: wrap;
     }
 
-    main {    
+    main {
         height: 40%;
         width: 100%;
         display: flex;
@@ -41,7 +41,7 @@
         background-color: black;
     }
 
-    header > div:nth-child(1) {
+    header>div:nth-child(1) {
 
         background-color: chartreuse;
         height: 40%;
@@ -49,7 +49,7 @@
         margin-left: 2%;
     }
 
-    header > div:nth-child(2) {
+    header>div:nth-child(2) {
 
         background-color: grey;
         width: 30%;
@@ -58,7 +58,7 @@
         align-self: flex-end;
     }
 
-    header > div:nth-child(3) {
+    header>div:nth-child(3) {
 
         background-color: dodgerblue;
         width: 96%;
@@ -68,7 +68,7 @@
         margin-top: 2%;
     }
 
-    main > div {
+    main>div {
         background-color: fuchsia;
         height: 100%;
         width: 96%;
@@ -76,26 +76,26 @@
         margin-right: 2%;
     }
 
-    aside > div:nth-child(1) {
+    aside>div:nth-child(1) {
 
         background-color: orange;
         width: 44%;
         height: 100%;
         margin-left: 2%;
-        
+
     }
 
-    aside > div:nth-child(2) {
+    aside>div:nth-child(2) {
 
         background-color: orange;
         width: 44%;
         height: 100%;
         margin-right: 2%;
-        
+
     }
 }
 
-@media (min-width: 576px) and (max-width: 991px){
+@media (min-width: 576px) and (max-width: 991px) {
 
     .flex-container {
         height: 700px;
@@ -114,7 +114,7 @@
         flex-wrap: wrap;
     }
 
-    main {    
+    main {
         height: 40%;
         width: 100%;
         display: flex;
@@ -132,16 +132,14 @@
     }
 
     footer {
-
-        height: 30%;
+        height: 10%;
         width: 100%;
-        margin-top: 20px;
-        margin-left: 2%;
-        margin-right: 2%;
-        background-color: black;
+        margin-top: 10px;
+        background-color: #1c2c4c;
+        display: flex;
     }
 
-    header > div:nth-child(1) {
+    header>div:nth-child(1) {
 
         background-color: chartreuse;
         height: 40%;
@@ -150,7 +148,7 @@
         display: flex;
     }
 
-    header > div:nth-child(2) {
+    header>div:nth-child(2) {
 
         background-color: grey;
         width: 30%;
@@ -159,7 +157,7 @@
         align-self: flex-end;
     }
 
-    header > div:nth-child(3) {
+    header>div:nth-child(3) {
 
         background-color: dodgerblue;
         width: 100%;
@@ -169,7 +167,7 @@
         margin-top: 2%;
     }
 
-    main > div {
+    main>div {
         background-color: fuchsia;
         height: 100%;
         width: 100%;
@@ -177,40 +175,69 @@
         margin-right: 2%;
     }
 
-    aside > div:nth-child(1) {
+    aside>div:nth-child(1) {
 
-        background-color: orange;
+        background-color: #e7e7e7;
         width: 100%;
         height: 45%;
         margin-left: 2%;
         margin-right: 2%;
         order: 2;
-        
+
     }
 
-    aside > div:nth-child(2) {
-
-        background-color: orange;
+    aside>div:nth-child(2) {
         width: 100%;
         height: 45%;
         margin-left: 2%;
         margin-right: 2%;
         order: 1;
-        
     }
 
-    .little-card {
+    aside>div:nth-child(2)>.card {
+        height: 80%;
+        width: 96%;
+        margin: auto;
+        margin-top: 1.5%;
+    }
 
-        width: 100%;
+    aside>div:nth-child(2)>.card>.row {
         height: 100%;
-        display: flex;
-        
+
+    }
+
+    aside>div:nth-child(2)>.card>.row>.img-col {
+        height: 100%;
+
+    }
+
+    aside>div:nth-child(2)>.card>.row>.img-col>.card-img-top {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    aside>div:nth-child(2)>.card>.row>.text-col>.card-body>.card-title {
+        font-size: 17px;
+    }
+
+    aside>div:nth-child(2)>.card>.row>.text-col>.card-body>.card-text {
+        font-size: 15px;
+    }
+
+    footer>.footer-logo {
+        margin: 0.5%;
+    }
+
+    footer>p {
+        margin: auto;
+        font-weight: bold;
+        color: white;
     }
 
 
 }
 
-@media (min-width: 992px) {
+@media (min-width: 991px) {
 
     .flex-container {
         height: 700px;
@@ -233,7 +260,7 @@
         height: 100%;
         margin-top: 8%;
         padding-left: 2%;
-        display: flex;   
+        display: flex;
     }
 
     aside {
@@ -253,16 +280,16 @@
         background-color: #1c2c4c;
         display: flex;
     }
-    
-    header > div:nth-child(1) {
+
+    header>div:nth-child(1) {
         background-color: chartreuse;
         margin-top: 2%;
         margin-left: 2%;
         height: 90%;
         width: 35%;
     }
-    
-    header > div:nth-child(2) {
+
+    header>div:nth-child(2) {
         background-color: grey;
         margin-top: 2%;
         margin-right: 2%;
@@ -270,8 +297,8 @@
         width: 35%;
         align-self: flex-end;
     }
-    
-    header > div:nth-child(3) {
+
+    header>div:nth-child(3) {
         background-color: dodgerblue;
         margin-top: 1%;
         margin-left: 2%;
@@ -279,21 +306,43 @@
         height: 50%;
         width: 100%;
     }
-    
-    main > div {
-        background-color: fuchsia;      
+
+    main>div {
+        background-color: fuchsia;
         height: 100%;
         width: 100%;
         margin-right: 2%;
     }
-    
-    aside > div:nth-child(1) {
-        background-color: orange;
+
+    aside>div:nth-child(1) {
+        background-color: #e7e7e7;
         height: 20%;
         width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    aside>div:nth-child(1)>div:nth-child(1) {
+        grid-row: span 2 / span 2;
+        display: flex;
+        flex-direction: column;
     }
     
-    aside > div:nth-child(2) {
+    aside>div:nth-child(1)>div:nth-child(2) {
+        grid-row: span 2 / span 2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside>div:nth-child(1)>div:nth-child(1)>.socialmedia-text {
+        margin-top: 3%;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: bold;
+        font-size: 13px;
+    }
+    aside>div:nth-child(2) {
         height: 75%;
         width: 100%;
         display: flex;
@@ -302,31 +351,56 @@
 
     }
 
-    aside > div:nth-child(2) > .card {
+    aside>div:nth-child(1)>div:nth-child(2)>.label-newsletter {
+        margin-right: 5%;
+        margin-top: 3%;
+        align-self: flex-end;
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    aside>div:nth-child(1)>div:nth-child(2)>.form-newsletter {
+        margin-top: 7%;
+        margin-right: 5%;
+        width: 82%;
+        align-self: flex-end;
+        border: solid #4754b1 2px;
+    }
+
+    aside>div:nth-child(1)>div:nth-child(2)>.sub-button {
+        margin-top: 10%;
+        margin-right: 5%;
+        width: 60%;
+        align-self: flex-end;
+        background-color: #659df2;
+        border: 0;
+        border-radius: 40px;
+        color: white;
+        font-weight: bold;
+    }
+    aside>div:nth-child(2)>.card {
         margin: 2%;
         height: 46%;
     }
 
-    aside > div:nth-child(2) > .card > .card-img-top {
+    aside>div:nth-child(2)>.card>.card-img-top {
         height: 50%;
         object-fit: cover;
     }
 
-    aside > div:nth-child(2) > .card > .card-body {
+    aside>div:nth-child(2)>.card>.card-body {
         padding: 2%
     }
 
-    aside > div:nth-child(2) > .card > .card-body > .card-text {
+    aside>div:nth-child(2)>.card>.card-body>.card-text {
         text-align: justify;
     }
 
-    footer > .footer-logo {
-        width: 3.5%;
-        height: 85%;
-        margin: 10px;
+    footer>.footer-logo {
+        margin: 0.5%;
     }
 
-    footer > p {
+    footer>p {
         margin: auto;
         font-weight: bold;
         color: white;
