@@ -245,6 +245,7 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     header {
@@ -256,18 +257,18 @@
     }
 
     main {
-        width: 70%;
+        width: 67%;
         height: 100%;
         margin-top: 8%;
-        padding-left: 2%;
+        margin-left: 2%;
         display: flex;
     }
 
     aside {
         height: 100%;
-        width: 30%;
+        width: 27%;
         margin-top: 8%;
-        padding-right: 2%;
+        margin-right: 2%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -311,7 +312,6 @@
         background-color: fuchsia;
         height: 100%;
         width: 100%;
-        margin-right: 2%;
     }
 
     aside>div:nth-child(1) {
@@ -326,7 +326,9 @@
     aside>div:nth-child(1)>div:nth-child(1) {
         grid-row: span 2 / span 2;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap; 
+        justify-content: space-evenly;
     }
     
     aside>div:nth-child(1)>div:nth-child(2) {
@@ -334,14 +336,7 @@
         display: flex;
         flex-direction: column;
     }
-
-    aside>div:nth-child(1)>div:nth-child(1)>.socialmedia-text {
-        margin-top: 3%;
-        margin-left: auto;
-        margin-right: auto;
-        font-weight: bold;
-        font-size: 13px;
-    }
+    
     aside>div:nth-child(2) {
         height: 75%;
         width: 100%;
@@ -349,6 +344,29 @@
         flex-direction: column;
         justify-content: space-between;
 
+    }
+    
+    aside>div:nth-child(1)>div:nth-child(1)>.socialmedia-text {
+        width: 80%;
+        margin-top: 3%;
+        margin-bottom: 0%;
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    aside>div:nth-child(1)>div:nth-child(1)>.socialmedia-icon {
+        height: 25%;
+        width: 25%;  
+    }
+
+    aside>div:nth-child(1)>div:nth-child(1)>#left-icon {
+        margin-left: 10%;
+        margin-right: 5%;
+    }
+
+    aside>div:nth-child(1)>div:nth-child(1)>#right-icon {
+        margin-right: 10%;
+        margin-left: 5%;
     }
 
     aside>div:nth-child(1)>div:nth-child(2)>.label-newsletter {
@@ -360,15 +378,16 @@
     }
 
     aside>div:nth-child(1)>div:nth-child(2)>.form-newsletter {
-        margin-top: 7%;
+        margin-top: 9%;
         margin-right: 5%;
         width: 82%;
         align-self: flex-end;
         border: solid #4754b1 2px;
+        font-size: 12px;
     }
 
     aside>div:nth-child(1)>div:nth-child(2)>.sub-button {
-        margin-top: 10%;
+        margin-top: 12%;
         margin-right: 5%;
         width: 60%;
         align-self: flex-end;
@@ -377,6 +396,7 @@
         border-radius: 40px;
         color: white;
         font-weight: bold;
+        font-size: 13px;
     }
     aside>div:nth-child(2)>.card {
         margin: 2%;
