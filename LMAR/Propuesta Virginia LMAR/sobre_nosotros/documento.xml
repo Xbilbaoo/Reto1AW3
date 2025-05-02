@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="sobre_nosotros.xsl" type="text/xsl"?>
+<empresa>
+    <nombre_comercial>GetYourGuide</nombre_comercial>
+    <secto>Turismo</secto>
+    <equipo>
+        <trabajador>
+            <nombre>Laura Gómez</nombre>
+            <puesto>Project manager</puesto>
+        </trabajador>
+        <trabajador>
+            <nombre>Carlos Ruiz</nombre>
+            <puesto>Asistente administrativo</puesto>
+        </trabajador>
+        <trabajador>
+            <nombre>Ana Martínez</nombre>
+            <puesto>Analista de datos</puesto>
+        </trabajador>
+        <trabajador>
+            <nombre>David López</nombre>
+            <puesto>Especialista en marketing digital</puesto>
+        </trabajador>
+        <trabajador>
+            <nombre>Sofía Hernández</nombre>
+            <puesto>Diseñadora UX/UI</puesto>
+        </trabajador>
+        <trabajador>
+            <nombre>Javier Ortega</nombre>
+            <puesto>Desarrollador full stack</puesto>
+        </trabajador>
+        <trabajador>
+            <nombre>María Torres</nombre>
+            <puesto>Atención al cliente</puesto>
+        </trabajador>
+        <trabajador>
+            <nombre>Álvaro Pérez</nombre>
+            <puesto>Coordinador de ventas</puesto>
+        </trabajador>
+        <imagen_equipo>img/equipo.png</imagen_equipo>
+    </equipo>
+    <historia>Get your guide es fundada en 2009 por (quienes entonces eran compañeros de clase) Johannes, Tao, Martin y 
+    Tobias, la empresa surgió a raíz de un imprevisto durante un viaje que acabó inspirando una forma 
+    revolucionaria de viajar: al aterrizar en Pekín un día antes de lo esperado, Johannes se dedicó a pasar 
+    el tiempo andando sin rumbo por las calles de la ciudad, sin saber qué hacer ni a dónde ir. 
+    Hasta la llegada de Tao, que le hizo de guía local al día siguiente, no consiguió apreciar realmente el lugar. 
+    Cuando volvieron a Zúrich ya tenían una nítida visión de futuro con la que se propusieron cambiar el mundo de los viajes. 
+    ¿El resultado? Una plataforma que reúne las mejores actividades del planeta para
+     que lo tengas todo en un solo sitio.</historia>
+    <mision>Nuestra misión es conectar a las personas con las mejores actividades 
+    y atracciones en cualquier destino, haciendo que los viajes sean más enriquecedores y accesibles.</mision>
+    <vision>Nuestra visión es inspirar y capacitar a los viajeros para descubrir
+    las maravillas del mundo con facilidad y confianza.</vision>
+    <valores>Nuestros valores centrales de integridad, innovación y enfoque
+    del cliente nos llevan a mejorar y mejorar continuamente la experiencia
+    del viaje para todos.</valores>
+    <contacto>
+        <nombre_legal>Get your guide Spain, S.L</nombre_legal>
+        <direccion>Calle Pallars 108N, 08018</direccion>
+        <telefono>917 69 35 19</telefono>
+        <email>GYG@gmail.com</email>
+    </contacto>
+</empresa>
