@@ -1,0 +1,33 @@
+<!-- Add XML Schema (XSD) Data -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="excursiones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="excursion" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_excursion" type="xs:nonNegativeInteger" use="required"/>
+              <xs:element name="descripcion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dia" type="xs:date"/>
+              <xs:element name="hora"/>
+              <xs:element name="aforo">
+                <xs:simpleType>
+                 <xs:restriction base="xs:integer">
+    			  <xs:minInclusive value="5"/>
+    			  <xs:maxInclusive value="60"/>
+  				 </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
