@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>GET YOUR GUIDE</title>
+        <link>http://127.0.0.1:5500/reserva.html</link>
+        <description>Síguenos en nuestras redes sociales para mantenerte informado sobre viajes y promociones exclusivas.</description>
+
+        <item>
+            <title>Instagram</title>
+            <link>https://www.instagram.com/getyourguide/</link>
+            <description>En nuestro Instagram podrás estar al tanto de los últimos viajes y excursiones organizados. Además, como seguidor participas mensualmente en sorteos de experiencias únicas.</description>
+        </item>
+
+        <item>
+            <title>Facebook</title>
+            <link>https://www.facebook.com/getyourguide/</link>
+            <description>Únete a nuestra comunidad en Facebook para compartir experiencias, conocer nuevas ofertas y recibir recomendaciones personalizadas de viajes.</description>
+        </item>
+
+        <item>
+            <title>LinkedIn</title>
+            <link>https://www.linkedin.com/company/getyourguide/</link>
+            <description>Conéctate con nosotros en LinkedIn para conocer nuestras alianzas estratégicas, oportunidades profesionales y novedades del sector turístico.</description>
+        </item>
+
+        <item>
+            <title>Twitter</title>
+            <link>https://twitter.com/getyourguide</link>
+            <description>Síguenos en Twitter para enterarte al instante de promociones, noticias y tips de viaje para cada temporada.</description>
+        </item>
+    </channel>
+</rss>

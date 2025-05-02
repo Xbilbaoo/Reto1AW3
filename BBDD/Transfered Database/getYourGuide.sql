@@ -9,14 +9,14 @@ USE getYourGuide;
 -- Estructura de tabla para la tabla `Persona`
 --
 CREATE TABLE Persona (
-	DNI VARCHAR(9) NOT NULL,
-	nombre VARCHAR(50) NOT NULL,
-	apellido VARCHAR(50),
-	rol VARCHAR(50) NOT NULL,
-	mail VARCHAR(50) UNIQUE NOT NULL,
-	telefono INT(9),
-	contraseyna VARCHAR(50) NOT NULL,
-	PRIMARY KEY(DNI)
+    DNI VARCHAR(9) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50),
+    rol VARCHAR(50) NOT NULL,
+    mail VARCHAR(50) UNIQUE NOT NULL,
+    telefono VARCHAR(9),
+    contraseyna VARCHAR(50) NOT NULL,
+    PRIMARY KEY(DNI)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -42,20 +42,20 @@ INSERT INTO Persona (DNI, nombre, apellido, rol, mail, telefono, contraseyna) VA
 -- Estructura de tabla para la tabla `Excursion`
 --
 CREATE TABLE Excursion (
-	id_excursion INT AUTO_INCREMENT,
-	hora TIME,
-	dia DATE,
-	aforo INT UNSIGNED,
-	Codigo_visita INT NOT NULL,
-	PRIMARY KEY(id_excursion)
+    id_excursion INT AUTO_INCREMENT,
+    hora TIME,
+    dia DATE,
+    aforo INT UNSIGNED,
+    Codigo_visita INT NOT NULL,
+    PRIMARY KEY(id_excursion)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `Excursion`
 --
-INSERT INTO Excursion (id_excursion, hora, dia, aforo,Codigo_visita) VALUES
+INSERT INTO Excursion (		, hora, dia, aforo,Codigo_visita) VALUES
 (1, '10:00:00', '2025-04-05', 50,101),
-(2,	'11:00:00', '2025-04-06', 30,102),
+(2, '11:00:00', '2025-04-06', 30,102),
 (3, '09:00:00', '2025-04-07', 40,103),
 (4, '10:30:00', '2025-04-14', 40,104),
 (5, '11:00:00', '2025-04-15', 25,105),
@@ -72,10 +72,10 @@ INSERT INTO Excursion (id_excursion, hora, dia, aforo,Codigo_visita) VALUES
 -- Estructura de tabla para la tabla `Empresa`
 --
 CREATE TABLE Empresa (
-	CIF VARCHAR(9) NOT NULL,
-	nombre VARCHAR(50) NOT NULL,
-	direccion VARCHAR(50) NOT NULL,
-	PRIMARY KEY(CIF)
+    CIF VARCHAR(9) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    direccion VARCHAR(50) NOT NULL,
+    PRIMARY KEY(CIF)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -100,40 +100,42 @@ INSERT INTO Empresa (CIF, nombre, direccion) VALUES
 -- Estructura de tabla para la tabla `Visita_Viaje`
 --
 CREATE TABLE Visita_Viaje (
-	Codigo_visita INT NOT NULL,
-	nombre VARCHAR(50) NOT NULL,
-	descripcion TEXT NOT NULL,
-	estado_actividad ENUM('Jubilados','No Jubilados'),
-	CIF_empresa VARCHAR(9) NOT NULL,
-	PRIMARY KEY(Codigo_visita)
+    Codigo_visita INT NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    descripcion TEXT NOT NULL,
+    estado_actividad ENUM('Jubilados','No Jubilados'),
+    CIF_empresa VARCHAR(9) NOT NULL,
+    PRIMARY KEY(Codigo_visita)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `Visita`
 --
+-- Volcado de datos para la tabla `Visita_Viaje`
 INSERT INTO Visita_Viaje (Codigo_visita, nombre, descripcion, estado_actividad, CIF_empresa) VALUES
-(101, 'Visita a la Alhambra', 'Una visita guiada por el majestuoso palacio de la Alhambra en Granada.', 'No Jubilados', '12345678A'),
-(102, 'Visita a la Sagrada Familia', 'Tour por la famosa basílica de Gaudí en Barcelona.', 'Jubilados', '45678901D'),
-(103, 'Visita al Museo del Prado', 'Recorrido por las obras maestras del arte español e internacional.', 'No Jubilados', '23456789B'),
-(104, 'Visita a la Mezquita de Córdoba', 'Recorrido por la histórica Mezquita-Catedral de Córdoba.', 'No Jubilados', '56789012E'),
-(105, 'Visita a la Torre Eiffel', 'Tour por el icónico monumento en París.', 'Jubilados', '89012345H'),
-(106, 'Visita al Coliseo Romano', 'Explora el antiguo anfiteatro romano en el centro de Roma.', 'No Jubilados', '67890123F'),
-(107, 'Visita al Museo de Arte Moderno de Nueva York', 'Tour por las famosas obras de arte contemporáneo.', 'Jubilados', '90123456I'),
-(108, 'Visita al Palacio de Buckingham', 'Recorrido por la residencia oficial de la Reina en Londres.', 'No Jubilados', '23456789L'),
-(109, 'Visita a la Plaza Mayor de Madrid', 'Recorrido por la emblemática plaza del centro de Madrid.', 'Jubilados', '34567890M'),
-(110, 'Visita al Museo Británico', 'Tour por uno de los museos más importantes del mundo en Londres.', 'No Jubilados', '89012345H'),
-(111, 'Visita al Museo del Louvre', 'Explora las colecciones más famosas del museo en París.', 'Jubilados', '56789012E'),
-(112, 'Visita a la Torre de Pisa', 'Tour guiado por la famosa torre inclinada en Pisa, Italia.', 'No Jubilados', '23456789L'),
-(113, 'Visita al Parque Güell', 'Tour por el parque diseñado por Antoni Gaudí en Barcelona.', 'No Jubilados', '78901234G');
+(101, 'Visita a la Alhambra', 'Una visita guiada por el majestuoso palacio de la Alhambra en Granada.', 'No Jubilados', 'B12345678'),
+(102, 'Visita a la Sagrada Familia', 'Tour por la famosa basílica de Gaudí en Barcelona.', 'Jubilados', 'B23456789'),
+(103, 'Visita al Museo del Prado', 'Recorrido por las obras maestras del arte español e internacional.', 'No Jubilados', 'B34567890'),
+(104, 'Visita a la Mezquita de Córdoba', 'Recorrido por la histórica Mezquita-Catedral de Córdoba.', 'No Jubilados', 'B45678901'),
+(105, 'Visita a la Torre Eiffel', 'Tour por el icónico monumento en París.', 'Jubilados', 'B56789012'),
+(106, 'Visita al Coliseo Romano', 'Explora el antiguo anfiteatro romano en el centro de Roma.', 'No Jubilados', 'B67890123'),
+(107, 'Visita al Museo de Arte Moderno de Nueva York', 'Tour por las famosas obras de arte contemporáneo.', 'Jubilados', 'B78901234'),
+(108, 'Visita al Palacio de Buckingham', 'Recorrido por la residencia oficial de la Reina en Londres.', 'No Jubilados', 'B89012345'),
+(109, 'Visita a la Plaza Mayor de Madrid', 'Recorrido por la emblemática plaza del centro de Madrid.', 'Jubilados', 'B90123456'),
+(110, 'Visita al Museo Británico', 'Tour por uno de los museos más importantes del mundo en Londres.', 'No Jubilados', 'B01234567'),
+(111, 'Visita al Museo del Louvre', 'Explora las colecciones más famosas del museo en París.', 'Jubilados', 'B12345679'),
+(112, 'Visita a la Torre de Pisa', 'Tour guiado por la famosa torre inclinada en Pisa, Italia.', 'No Jubilados', 'B23456780'),
+(113, 'Visita al Parque Güell', 'Tour por el parque diseñado por Antoni Gaudí en Barcelona.', 'No Jubilados', 'B34567891');
+
 
 --
 -- Estructura de tabla para la tabla `Reserva`
 --
 CREATE TABLE Reserva (
-	Id_reserva INT AUTO_INCREMENT,
-	DNI_persona VARCHAR(9) NOT NULL,
-	id_excursion INT,
-	PRIMARY KEY(Id_reserva)
+    Id_reserva INT AUTO_INCREMENT,
+    DNI_persona VARCHAR(9) NOT NULL,
+    id_excursion INT,
+    PRIMARY KEY(Id_reserva)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -154,11 +156,11 @@ INSERT INTO Reserva (Id_reserva, DNI_persona, id_excursion) VALUES
 -- Estructura de tabla para la tabla `Sugerencias_personas`
 --
 CREATE TABLE Sugerencias_personas (
-	Id_sugerencia INT AUTO_INCREMENT,
-	fecha_creacion DATE,
-	descripcion TEXT,
-	DNI_persona VARCHAR(9) NOT NULL,
-	PRIMARY KEY(Id_sugerencia)
+    Id_sugerencia INT AUTO_INCREMENT,
+    fecha_creacion DATE,
+    descripcion TEXT,
+    DNI_persona VARCHAR(9) NOT NULL,
+    PRIMARY KEY(Id_sugerencia)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -197,14 +199,14 @@ ALTER TABLE `Visita_Viaje`
 -- Claves Foraneas para la tabla `Reserva`
 --
 ALTER TABLE `Reserva`
-  ADD CONSTRAINT `Reserva_ibfk_1` FOREIGN KEY (DNI_persona) REFERENCES Persona (DNI);
+  ADD CONSTRAINT `Reserva_ibfk_1` FOREIGN KEY (DNI_persona) REFERENCES Persona (DNI) ON DELETE CASCADE,
   ADD CONSTRAINT FK_Reserva_Excursion FOREIGN KEY(id_excursion) REFERENCES Excursion (id_excursion);
  
 --
 -- Claves Foraneas para la tabla `Excursion`
 --
-ALTER TABLE
-	ADD CONSTRAINT `Excursion_ibfk_1` FOREIGN KEY (Codigo_visita) REFERENCES Visita_Viaje (Codigo_visita);
+ALTER TABLE `Excursion`
+    ADD CONSTRAINT `Excursion_ibfk_1` FOREIGN KEY (Codigo_visita) REFERENCES Visita_Viaje (Codigo_visita);
 --
   --Visualización de todos los datos de las tablas 
 --
@@ -291,22 +293,21 @@ BEGIN
     VALUES ('Sugerencias_personas', NOW(),CONCAT('ID: ', OLD.Id_sugerencia,', Fecha: ', OLD.fecha_creacion, ', Descripción: ', OLD.descripcion,', DNI_persona: ',OLD.DNI_persona));
 END $$
 
--- Trigger para datos actualizados en Visita_Viaje
 CREATE TRIGGER trigger_visita_update
 AFTER UPDATE ON Visita_Viaje
 FOR EACH ROW
 BEGIN
     INSERT INTO datos_actualizados (tabla_cambiada, fecha, datos_pre_modificar)
-    VALUES ('Visita_Viaje', NOW(),CONCAT('Código: ', OLD.Codigo, ', Nombre: ', OLD.nombre, ', Descripción: ', OLD.descripcion, ', estado_actividad: ', OLD.estado_actividad, ', CIF_empresa: ', OLD.CIF_empresa));
+    VALUES ('Visita_Viaje', NOW(),CONCAT('Código: ', OLD.Codigo_visita, ', Nombre: ', OLD.nombre, ', Descripción: ', OLD.descripcion, ', estado_actividad: ', OLD.estado_actividad, ', CIF_empresa: ', OLD.CIF_empresa));
 END $$
 
--- Trigger para datos borrados en Visita_Viaje	
+-- Trigger para datos borrados en Visita_Viaje  
 CREATE TRIGGER trigger_visita_delete
 AFTER DELETE ON Visita_Viaje
 FOR EACH ROW
 BEGIN
     INSERT INTO datos_borrados (tabla_cambiada, fecha, datos_pre_modificar)
-    VALUES ('Visita_Viaje', NOW(),CONCAT('Código: ', OLD.Codigo, ', Nombre: ', OLD.nombre, ', Descripción: ', OLD.descripcion, ', estado_actividad: ', OLD.estado_actividad, ', CIF_empresa: ', OLD.CIF_empresa));
+    VALUES ('Visita_Viaje', NOW(),CONCAT('Código: ', OLD.Codigo_visita, ', Nombre: ', OLD.nombre, ', Descripción: ', OLD.descripcion, ', estado_actividad: ', OLD.estado_actividad, ', CIF_empresa: ', OLD.CIF_empresa));
 END $$
 
 -- Trigger para datos actualizados en Excursion
@@ -351,7 +352,7 @@ AFTER UPDATE ON Reserva
 FOR EACH ROW
 BEGIN
     INSERT INTO datos_actualizados (tabla_cambiada, fecha, datos_pre_modificar)
-    VALUES ('Reserva', NOW(),CONCAT('Id_reserva: ', OLD.Id_reserva, ', DNI_persona: ', OLD.DNI_persona, ', id_excursion: ', OLD.id_excursion));
+    VALUES ('Reserva', NOW(), CONCAT('ID: ', OLD.Id_reserva, ', DNI_persona: ', OLD.DNI_persona, ', id_excursion: ', OLD.id_excursion));
 END $$
 
 -- Trigger para datos borrados en Reserva
