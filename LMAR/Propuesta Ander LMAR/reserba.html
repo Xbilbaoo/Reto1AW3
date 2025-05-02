@@ -15,15 +15,13 @@
           </div>
           <div class="head2">
             <a href="reserba.html">EUS</a>
-            <a> | </a>
             <a href="reserva.html">ES</a>
           </div>
         </div>
         <div class="navbar">
-            <a href="#home">Inicio</a>
-            <a class="active" href="#reserve">Reserva</a>
-            <a href="#about">Sobre Nosotros</a>
-            <a href="XML/RSS.xml">RSS</a>
+            <a href="#home">Hasiera</a>
+            <a class="active" href="#reserve">Reserbatu</a>
+            <a href="#about">Empresari buruz</a>
         </div>
     </header>
 
@@ -31,16 +29,16 @@
         <table id="ProductsTable">
             <thead>
               <tr>
-                <th>id_excursion</th>
-                <th>descripcion</th>
-                <th>dia</th>
-                <th>hora</th>
-                <th>aforo</th>
+                <th>irteera ID</th>
+                <th>dezkripzioa</th>
+                <th>eguna</th>
+                <th>ordua</th>
+                <th>edukiera</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td colspan="5" style="text-align: center">Sin registro</td>
+                <td colspan="5" style="text-align: center">Erregistro gabe</td>
               </tr>
             </tbody>
           </table>
@@ -49,22 +47,22 @@
     <div id="padreFC">
         <div id="ficheroCarga">
             <input id="carga" type="file" onChange="loadDoc(event)">
-            <label for="carga" id="cargaB">Subir XML</label>
+            <label for="carga" id="cargaB">XML-a Igo</label>
         </div>      
     </div>
 
     <div id="reserva"> <br>
-        <label for="Id_exc" id="labelExc"> ID EXCURSION</label><br>
+        <label for="Id_exc" id="labelExc">IRTEERA ID</label><br>
         <input type="text" id="Id_exc"> <br><br>
 
-        <label for="DNI" id="labelDNI"> DNI</label> <br>
+        <label for="DNI" id="labelDNI">NAN</label> <br>
         <input type="text" id="DNI"><br><br>
-        <button type="button" id="boton-descargar">Reservar</button>
+        <button type="button" id="boton-descargar">Reserbatu</button>
     </div>
 
     <footer class="foot">
         <img src="Imagenes/image.png" alt="logo" id="imgF">
-        <p>© 2008 - 2025 GetYourGuide. Creada en Zúrich y Berlín.</p>
+        <p>© 2008 - 2025 GetYourGuide. Zurich eta Berlinen sortuta</p>
     </footer>
 
     <script>

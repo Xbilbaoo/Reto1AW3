@@ -53,7 +53,7 @@ CREATE TABLE Excursion (
 --
 -- Volcado de datos para la tabla `Excursion`
 --
-INSERT INTO Excursion (id_excursion, hora, dia, aforo,Codigo_visita) VALUES
+INSERT INTO Excursion (		, hora, dia, aforo,Codigo_visita) VALUES
 (1, '10:00:00', '2025-04-05', 50,101),
 (2, '11:00:00', '2025-04-06', 30,102),
 (3, '09:00:00', '2025-04-07', 40,103),
