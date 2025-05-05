@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excursiones>
+    <excursion>
+        <id_excursion>1</id_excursion>
+        <descripcion>Visita al Castillo Medieval</descripcion>
+        <dia>2025-04-05</dia>
+        <hora>10:00:00</hora>
+        <aforo>50</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>2</id_excursion>
+        <descripcion>Recorrido por los Jardines Botánicos</descripcion>
+        <dia>2025-04-06</dia>
+        <hora>11:00:00</hora>
+        <aforo>30</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>3</id_excursion>
+        <descripcion>Tour Histórico en el Centro Antiguo</descripcion>
+        <dia>2025-04-07</dia>
+        <hora>09:00:00</hora>
+        <aforo>40</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>4</id_excursion>
+        <descripcion>Excursión a la Montaña Sagrada</descripcion>
+        <dia>2025-04-14</dia>
+        <hora>10:30:00</hora>
+        <aforo>40</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>5</id_excursion>
+        <descripcion>Paseo en Barco por el Río Azul</descripcion>
+        <dia>2025-04-15</dia>
+        <hora>11:00:00</hora>
+        <aforo>25</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>6</id_excursion>
+        <descripcion>Exploración de Cuevas Misteriosas</descripcion>
+        <dia>2025-04-16</dia>
+        <hora>12:00:00</hora>
+        <aforo>60</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>7</id_excursion>
+        <descripcion>Ruta Gastronómica Local</descripcion>
+        <dia>2025-04-17</dia>
+        <hora>14:00:00</hora>
+        <aforo>45</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>8</id_excursion>
+        <descripcion>Safari Fotográfico en la Reserva Natural</descripcion>
+        <dia>2025-04-18</dia>
+        <hora>15:00:00</hora>
+        <aforo>50</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>9</id_excursion>
+        <descripcion>Atardecer en el Faro del Fin del Mundo</descripcion>
+        <dia>2025-04-19</dia>
+        <hora>16:00:00</hora>
+        <aforo>40</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>10</id_excursion>
+        <descripcion>Senderismo en el Bosque Encantado</descripcion>
+        <dia>2025-04-20</dia>
+        <hora>09:30:00</hora>
+        <aforo>30</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>11</id_excursion>
+        <descripcion>Visita Cultural a los Museos Locales</descripcion>
+        <dia>2025-04-21</dia>
+        <hora>10:00:00</hora>
+        <aforo>35</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>12</id_excursion>
+        <descripcion>Ruta del Vino en Viñedos Históricos</descripcion>
+        <dia>2025-04-22</dia>
+        <hora>11:30:00</hora>
+        <aforo>25</aforo>
+    </excursion>
+    <excursion>
+        <id_excursion>13</id_excursion>
+        <descripcion>Excursión Arqueológica a Ruinas Antiguas</descripcion>
+        <dia>2025-04-23</dia>
+        <hora>12:30:00</hora>
+        <aforo>50</aforo>
+    </excursion>
+</excursiones>

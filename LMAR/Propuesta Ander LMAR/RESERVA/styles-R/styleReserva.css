@@ -1,0 +1,251 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  header {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .head {
+    display: flex;
+    align-items: center;
+    display: flex;
+    height: 80px;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .container img {
+    height: 50px;
+    width: auto;
+  }
+  #search-container{
+    margin-right: 50px;
+
+  }
+
+  #search-bar {
+    margin-right: 50px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 300px;
+    float: right;
+  }
+  
+  .lang-container {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .lang-container a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .lang-container span {
+    color: #333;
+  }
+  
+
+  .navbar {
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    padding: 10px 0;
+  }
+  
+  .navbar a {
+    
+    margin-right: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1c2c4c;
+    text-decoration: none;
+    margin: 0 20px;
+  }
+  
+  .navbar a:hover,
+  .navbar a.active {
+    color: #000;
+  }
+  
+/*Media Query para tablets*/
+@media screen and (max-width: 1024px) {
+    .head {
+      padding: 0 20px;
+      height: auto;
+    }
+  
+    .head1 img {
+      height: 45px;
+    }
+  
+    .head1 #search {
+      width: 180px;
+      font-size: 13px;
+    }
+  
+    .navbar a {
+      margin: 0 15px;
+      font-size: 13px;
+    }
+  }
+  
+/*Media Query para moviles*/
+  @media screen and (max-width: 768px) {
+    .head {
+      padding: 0 20px;
+      height: auto;
+    }
+  
+    .head1 img {
+      height: 45px;
+    }
+  
+    .head1 #search {
+      width: 180px;
+      font-size: 13px;
+      height: 50px;
+    }
+  
+    .navbar a {
+      margin: 0 15px;
+      font-size: 13px;
+    }
+  }
+
+  #ProductsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  #ProductsTable th,
+  #ProductsTable td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    color: #444;
+  }
+  
+  #ProductsTable th {
+    background-color: #1c2c4c;
+    color: white;
+  }
+  
+  .scrollit {
+    overflow: auto;
+    max-height: 300px;
+  }
+  
+
+  #padreFC {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  #ficheroCarga {
+    background-color: #f8f8f8;
+    padding: 8px;
+  }
+  
+  #ficheroCarga input {
+    display: none;
+  }
+  
+  #ficheroCarga label {
+    background-color: #659DF2;
+    border-radius: 30px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 200;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 20px;
+  }
+  
+
+  #reserva {
+    width: 50%;
+    max-width: 400px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #1c2c4c;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+  
+  #reserva label {
+    display: block;
+    font-size: 18px;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  #reserva input {
+    width: 80%;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    margin: 10px auto;
+    display: block;
+    padding: 0 12px;
+  }
+  
+  #boton-descargar {
+    width: 60%;
+    max-width: 200px;
+    height: 35px;
+    font-size: 16px;
+    color: white;
+    background-color: #659DF2;
+    border: none;
+    border-radius: 30px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+
+  footer {
+    width: 100%;
+    background-color: #1c2c4c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    margin-top: auto;
+  }
+  
+  .foot #imgF {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .foot p {
+    font-weight: bold;
+    color: white;
+  }

@@ -1,0 +1,316 @@
+/* header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+
+}
+
+.verde {
+
+    width: 40%;
+    margin-right: 50px;
+    height: 8vh;
+}
+
+.gris {
+    width: 60%;
+    height: 4vh;
+
+    align-self: center;
+
+}
+
+.idioma {
+    display: flex;
+    margin-left: 35px;
+}
+
+.idioma_buscador {
+    display: flex;
+    margin-right: 15px;
+    float: right;
+}
+
+a {
+    text-decoration: none;
+    color: #1a2b49;
+}
+
+
+ul {
+    display: flex;
+    margin-left: 20px;
+
+    justify-content: center;
+    padding-top: 8px;
+}
+
+li {
+    list-style: none;
+    font-size: clamp(14px, 2vw, 24px);
+  
+    margin-right: 40px;
+    color: #1a2b49;
+
+
+
+}
+
+.gris {
+    width: 60%;
+    height: 4vh;
+
+    align-self: center;
+
+}
+
+.azul {
+    background-color: rgb(233, 233, 233);
+    height: 6vh;
+
+
+}
+
+
+
+
+/* imagen foto equipo */
+
+.imagen-equipo-trabajo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px;
+    max-height: 73vh;
+  
+}
+
+.historia {
+    margin-bottom: 20px;
+}
+
+.vision-mision-valores {
+    height: auto;
+    
+    width: 100%;
+    display: flex;
+
+}
+
+
+.mision {
+    width: 35%;
+    height: auto;
+    background-color: lightgrey;
+    margin-right: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+
+
+}
+
+.vision {
+    width: 35%;
+    height: auto;
+    background-color: lightgrey;
+    margin-right: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+
+
+}
+
+.valores {
+    width: 35%;
+    height: auto;
+    background-color: lightgrey;
+    padding-left: 7px;
+    padding-right: 7px;
+
+
+}
+
+
+.fotos-contacto {
+    display: flex;
+
+
+
+}
+
+
+
+
+
+.icono-email,
+.icono-direccion,
+.icono-empresa,
+.icono-telefono {
+    width: 20%;
+
+
+
+}
+
+
+
+
+p {
+  
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+
+}
+
+h2 {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+
+}
+
+h3 {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+
+}
+
+/* footer */
+.footer {
+    height: 10VH;
+    width: 100%;
+
+    background-color: #1c2c4c;
+    display: flex;
+}
+
+.footer>p {
+    margin: auto;
+    font-weight: bold;
+    color: white;
+}
+
+
+  
+  header {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .head {
+    display: flex;
+    align-items: center;
+    display: flex;
+    height: 80px;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .container img {
+    height: 50px;
+    width: auto;
+  }
+  #search-container{
+    margin-right: 50px;
+
+  }
+
+  #search-bar {
+    margin-right: 50px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 300px;
+    float: right;
+  }
+  
+  .lang-container {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .lang-container a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .lang-container span {
+    color: #333;
+  }
+  
+
+  .navbar {
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    padding: 10px 0;
+  }
+  
+  .navbar a {
+    
+    margin-right: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1c2c4c;
+    text-decoration: none;
+    margin: 0 20px;
+  }
+  
+  .navbar a:hover,
+  .navbar a.active {
+    color: #000;
+  }
+  
+/*Media Query para tablets*/
+@media screen and (max-width: 1024px) {
+    .head {
+      padding: 0 20px;
+      height: auto;
+    }
+  
+    .head1 img {
+      height: 45px;
+    }
+  
+    .head1 #search {
+      width: 180px;
+      font-size: 13px;
+    }
+  
+    .navbar a {
+      margin: 0 15px;
+      font-size: 13px;
+    }
+  }
+  
+/*Media Query para moviles*/
+  @media screen and (max-width: 768px) {
+    .head {
+      padding: 0 20px;
+      height: auto;
+    }
+  
+    .head1 img {
+      height: 45px;
+    }
+  
+    .head1 #search {
+      width: 180px;
+      font-size: 13px;
+      height: 50px;
+    }
+  
+    .navbar a {
+      margin: 0 15px;
+      font-size: 13px;
+    }
+  }

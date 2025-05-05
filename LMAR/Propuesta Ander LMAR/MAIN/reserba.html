@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GET YOUR GUIDE</title>
+  <link rel="stylesheet" href="styles-R/styleReserva.css">
+</head>
+<body>
+  <body>
+    <header>
+    <div class="head">
+      <div class="logo-container">
+        <img src="img/reservas/{3DD42B29-4899-4849-96E6-9FCCACA642AE}.png" alt="logoa">
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Bilatu..." class="search-bar">
+        <button class="search-button">
+          <img src="img/reservas/lupa.png" alt="Bilatu" class="search-icon" style="height: 13px;">
+        </button>
+      </div>
+      <div class="lang-container">
+        <a href="reserva.html">ES</a>
+        <span>|</span>
+        <a href="reserba.html">EU</a>
+      </div>
+    </div>
+      </div>
+      <div class="navbar">
+        <a href="sobre_nosotros_euskera.html">GURI BURUZ</a>
+        <a href="reserba.html" class="active">ERRESERBA</a>
+        <a href="layoutEus.html">HASIERA</a>
+        <a href="XML-R/RSS.xml">RSS</a>
+      </div>
+    </header>  
+
+    <div class="scrollit">
+        <table id="ProductsTable">
+            <thead>
+              <tr>
+                <th>id_irteera</th>
+                <th>azalpena</th>
+                <th>eguna</th>
+                <th>ordua</th>
+                <th>aforoa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="5" style="text-align: center">Erregistrorik ez</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    <div id="padreFC">
+        <div id="ficheroCarga">
+            <input id="carga" type="file" onChange="loadDoc(event)">
+            <label for="carga" id="cargaB">Igo XML</label>
+        </div>      
+    </div>
+
+    <div id="reserva"> <br>
+        <label for="Id_exc" id="labelExc"> IRTEERA ID</label><br>
+        <input type="text" id="Id_exc"> <br><br>
+
+        <label for="DNI" id="labelDNI"> NAN</label> <br>
+        <input type="text" id="DNI"><br><br>
+        <button type="button" id="boton-descargar">Erreserbatu</button>
+    </div>
+
+    <footer class="foot">
+        <img src="img/reservas/image.png" alt="logoa" id="imgF">
+        <p>© 2008 - 2025 GetYourGuide. Zürich eta Berlinen sortua.</p>
+    </footer>
+
+    <script>
+      function loadDoc(e) {
+        const file = e.target.files[0];
+        if (!file) {
+          alert('Lehenik XML fitxategi bat aukeratu behar duzu');
+          return false;
+        }
+        readDoc(file).then(parseDoc).then(showDocInTable).catch(onError);
+      }
+
+      function readDoc(file) {
+        const reader = new FileReader();
+        return new Promise((ok) => {
+          reader.readAsText(file);
+          reader.onload = function() {
+            ok(reader.result);
+          };
+        });
+      }
+
+      function parseDoc(rawXML) {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(rawXML, 'text/xml');
+        return xml;
+      }
+
+      function showDocInTable(xml) {
+        const table = document.querySelector('#ProductsTable > tbody');
+        const datasource = xml.querySelector('excursiones');
+        const excursiones = datasource.querySelectorAll('excursion');
+
+        table.innerHTML = ''; 
+
+        Array.from(excursiones).forEach((excursion) => {
+          const tr = document.createElement('tr');
+          const id_excursion = tagToData(excursion.querySelector('id_excursion'));
+          const descripcion = tagToData(excursion.querySelector('descripcion'));
+          const dia = tagToData(excursion.querySelector('dia'));
+          const hora = tagToData(excursion.querySelector('hora'));
+          const aforo = tagToData(excursion.querySelector('aforo'));
+
+          tr.append(id_excursion, descripcion, dia, hora, aforo);
+          table.appendChild(tr);
+        });
+      }
+
+      function tagToData(tag) {
+        const td = document.createElement('td');
+        td.textContent = tag ? tag.textContent : 'Daturik ez';
+        return td;
+      }
+
+      function onError(reason) {
+        console.error(reason);
+      }
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+        function generarBlobXml() {
+            const documento = document.implementation.createDocument('', '', null);
+            const raiz = documento.createElement('erreserba');
+            documento.appendChild(raiz);
+
+            const id_excursion = documento.createElement('id_excursion');
+            id_excursion.textContent = document.querySelector('#Id_exc').value;
+            raiz.appendChild(id_excursion);
+
+            const dni = documento.createElement('dni');
+            dni.textContent = document.querySelector('#DNI').value;
+            raiz.appendChild(dni);
+
+            const partes = [raiz.outerHTML];
+            const blobArchivo = new Blob(partes, { type: 'text/xml' });
+            return blobArchivo;
+        }
+
+        function descargarArchivo(archivo, nombre) {
+            const guardar = document.createElement('a');
+            guardar.href = URL.createObjectURL(archivo);
+            guardar.download = nombre || 'fitxategia.dat';
+            guardar.target = '_blank';
+
+            guardar.click();
+            URL.revokeObjectURL(guardar.href);
+        }
+
+        function confirmarAccion(mensaje) {
+            if (confirm(mensaje)) {
+                alert("Erreserba burututa");
+
+                const archivo = generarBlobXml();
+                const nombreArchivo = 'erreserba' + Date.now() + ".xml";
+                descargarArchivo(archivo, nombreArchivo);
+
+            } else {
+                alert("Erreserba bertan behera utzi da.");
+            }
+        }
+
+        document.querySelector('#boton-descargar').addEventListener('click', () => {
+            confirmarAccion('Erreserba egin nahi duzu?');
+        });
+
+      });
+    </script>
+
+</body>
+</html>

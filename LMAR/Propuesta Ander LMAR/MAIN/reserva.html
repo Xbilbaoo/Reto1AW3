@@ -3,29 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subir Fichero XML</title>
-  <link rel="stylesheet" href="/styles/styleReserva.css">
+  <title>GET YOUR GUIDE</title>
+  <link rel="stylesheet" href="styles-R/styleReserva.css">
 </head>
 <body>
+  <body>
     <header>
-        <div class="head">
-          <div class="head1">
-            <img src="Imagenes/{3DD42B29-4899-4849-96E6-9FCCACA642AE}.png" alt="logo">
-            <input type="text" placeholder="Search.." id="search">
-          </div>
-          <div class="head2">
-            <a href="reserba.html">EUS</a>
-            <a> | </a>
-            <a href="reserva.html">ES</a>
-          </div>
-        </div>
-        <div class="navbar">
-            <a href="#home">Inicio</a>
-            <a class="active" href="#reserve">Reserva</a>
-            <a href="#about">Sobre Nosotros</a>
-            <a href="XML/RSS.xml">RSS</a>
-        </div>
-    </header>
+    <div class="head">
+      <div class="logo-container">
+        <img src="img/reservas/{3DD42B29-4899-4849-96E6-9FCCACA642AE}.png" alt="logo">
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Buscar..." class="search-bar">
+        <button class="search-button">
+          <img src="img/reservas/lupa.png" alt="Buscar" class="search-icon" style="height: 13px;">
+        </button>
+      </div>
+      <div class="lang-container">
+        <a href="reserva.html">ES</a>
+        <span>|</span>
+        <a href="reserba.html">EU</a>
+      </div>
+    </div>
+      </div>
+      <div class="navbar">
+        <a href="sobre_nosotros.html">SOBRE NOSOTROS</a>
+        <a href="reserva.html" class="active">RESERVA</a>
+        <a href="layout.html">INICIO</a>
+        <a href="XML-R/RSS.xml">RSS</a>
+      </div>
+    </header>  
 
     <div class="scrollit">
         <table id="ProductsTable">
@@ -63,7 +70,7 @@
     </div>
 
     <footer class="foot">
-        <img src="Imagenes/image.png" alt="logo" id="imgF">
+        <img src="img/reservas/image.png" alt="logo" id="imgF">
         <p>© 2008 - 2025 GetYourGuide. Creada en Zúrich y Berlín.</p>
     </footer>
 

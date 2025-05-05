@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GET YOUR GUIDE</title>
+  <link rel="stylesheet" href="styles/styleReserva.css">
+</head>
+<body>
+  <body>
+    <header>
+    <div class="head">
+      <div class="logo-container">
+        <img src="Imagenes/{3DD42B29-4899-4849-96E6-9FCCACA642AE}.png" alt="logo">
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Buscar..." class="search-bar">
+        <button class="search-button">
+          <img src="im" alt="Buscar" class="search-icon" style="height: 13px;">
+        </button>
+      </div>
+      <div class="lang-container">
+        <a href="reserva.html">ES</a>
+        <span>|</span>
+        <a href="reserba.html">EU</a>
+      </div>
+    </div>
+      </div>
+      <div class="navbar">
+        <a href="#about">SOBRE NOSOTROS</a>
+        <a href="#reserve" class="active">RESERVA</a>
+        <a href="layout.html">INICIO</a>
+        <a href="XML/RSS.xml">RSS</a>
+      </div>
+    </header>  
+
+    <div class="scrollit">
+        <table id="ProductsTable">
+            <thead>
+              <tr>
+                <th>id_excursion</th>
+                <th>descripcion</th>
+                <th>dia</th>
+                <th>hora</th>
+                <th>aforo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="5" style="text-align: center">Sin registro</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    <div id="padreFC">
+        <div id="ficheroCarga">
+            <input id="carga" type="file" onChange="loadDoc(event)">
+            <label for="carga" id="cargaB">Subir XML</label>
+        </div>      
+    </div>
+
+    <div id="reserva"> <br>
+        <label for="Id_exc" id="labelExc"> ID EXCURSION</label><br>
+        <input type="text" id="Id_exc"> <br><br>
+
+        <label for="DNI" id="labelDNI"> DNI</label> <br>
+        <input type="text" id="DNI"><br><br>
+        <button type="button" id="boton-descargar">Reservar</button>
+    </div>
+
+    <footer class="foot">
+        <img src="Imagenes/image.png" alt="logo" id="imgF">
+        <p>© 2008 - 2025 GetYourGuide. Creada en Zúrich y Berlín.</p>
+    </footer>
+
+    <script>
+      function loadDoc(e) {
+        const file = e.target.files[0];
+        if (!file) {
+          alert('You need to choose an XML file first');
+          return false;
+        }
+        readDoc(file).then(parseDoc).then(showDocInTable).catch(onError);
+      }
+
+      function readDoc(file) {
+        const reader = new FileReader();
+        return new Promise((ok) => {
+          reader.readAsText(file);
+          reader.onload = function() {
+            ok(reader.result);
+          };
+        });
+      }
+
+      function parseDoc(rawXML) {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(rawXML, 'text/xml');
+        return xml;
+      }
+
+      function showDocInTable(xml) {
+        const table = document.querySelector('#ProductsTable > tbody');
+        const datasource = xml.querySelector('excursiones');
+        const excursiones = datasource.querySelectorAll('excursion');
+
+        table.innerHTML = ''; 
+
+        Array.from(excursiones).forEach((excursion) => {
+          const tr = document.createElement('tr');
+          const id_excursion = tagToData(excursion.querySelector('id_excursion'));
+          const descripcion = tagToData(excursion.querySelector('descripcion'));
+          const dia = tagToData(excursion.querySelector('dia'));
+          const hora = tagToData(excursion.querySelector('hora'));
+          const aforo = tagToData(excursion.querySelector('aforo'));
+
+          tr.append(id_excursion, descripcion, dia, hora, aforo);
+          table.appendChild(tr);
+        });
+      }
+
+      function tagToData(tag) {
+        const td = document.createElement('td');
+        td.textContent = tag ? tag.textContent : 'No data';
+        return td;
+      }
+
+      function onError(reason) {
+        console.error(reason);
+      }
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+        function generarBlobXml() {
+            const documento = document.implementation.createDocument('', '', null);
+            const raiz = documento.createElement('reserva');
+            documento.appendChild(raiz);
+
+            const id_excursion = documento.createElement('id_excursion');
+            id_excursion.textContent = document.querySelector('#Id_exc').value;
+            raiz.appendChild(id_excursion);
+
+            const dni = documento.createElement('dni');
+            dni.textContent = document.querySelector('#DNI').value;
+            raiz.appendChild(dni);
+
+            const partes = [raiz.outerHTML];
+            const blobArchivo = new Blob(partes, { type: 'text/xml' });
+            return blobArchivo;
+        }
+
+        function descargarArchivo(archivo, nombre) {
+            const guardar = document.createElement('a');
+            guardar.href = URL.createObjectURL(archivo);
+            guardar.download = nombre || 'archivo.dat';
+            guardar.target = '_blank';
+
+            guardar.click();
+            URL.revokeObjectURL(guardar.href);
+        }
+
+        function confirmarAccion(mensaje) {
+            if (confirm(mensaje)) {
+                alert("Reserva Realizada");
+
+                const archivo = generarBlobXml();
+                const nombreArchivo = 'reserva' + Date.now() + ".xml";
+                descargarArchivo(archivo, nombreArchivo);
+
+            } else {
+                alert("Reserva cancelada.");
+            }
+        }
+
+        document.querySelector('#boton-descargar').addEventListener('click', () => {
+            confirmarAccion('¿Quieres realizar la reserva?');
+        });
+
+      });
+    </script>
+
+</body>
+</html>

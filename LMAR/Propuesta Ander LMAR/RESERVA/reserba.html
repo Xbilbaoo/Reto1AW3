@@ -3,37 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subir Fichero XML</title>
+  <title>GET YOUR GUIDE</title>
   <link rel="stylesheet" href="/styles/styleReserva.css">
 </head>
 <body>
+  <body>
     <header>
-        <div class="head">
-          <div class="head1">
-            <img src="Imagenes/{3DD42B29-4899-4849-96E6-9FCCACA642AE}.png" alt="logo">
-            <input type="text" placeholder="Search.." id="search">
-          </div>
-          <div class="head2">
-            <a href="reserba.html">EUS</a>
-            <a href="reserva.html">ES</a>
-          </div>
-        </div>
-        <div class="navbar">
-            <a href="#home">Hasiera</a>
-            <a class="active" href="#reserve">Reserbatu</a>
-            <a href="#about">Empresari buruz</a>
-        </div>
-    </header>
+    <div class="head">
+      <div class="logo-container">
+        <img src="Imagenes/{3DD42B29-4899-4849-96E6-9FCCACA642AE}.png" alt="logo">
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Aurkitu..." class="search-bar">
+        <button class="search-button">
+          <img src="Imagenes/lupa.png" alt="Buscar" class="search-icon" style="height: 13px;">
+        </button>
+      </div>
+      <div class="lang-container">
+        <a href="reserva.html">ES</a>
+        <span>|</span>
+        <a href="reserba.html">EU</a>
+      </div>
+    </div>
+      </div>
+      <div class="navbar">
+        <a href="#about">HASIERA</a>
+        <a href="#reserve" class="active">RESERBATU</a>
+        <a href="#home">EMPRESARI BURUZ</a>
+        <a href="XML/RSS.xml">RSS</a>
+      </div>
+    </header>  
 
     <div class="scrollit">
         <table id="ProductsTable">
             <thead>
               <tr>
-                <th>irteera ID</th>
-                <th>dezkripzioa</th>
-                <th>eguna</th>
-                <th>ordua</th>
-                <th>edukiera</th>
+                <th>Id Irteera</th>
+                <th>Deskripzioa</th>
+                <th>Eguna</th>
+                <th>Ordua</th>
+                <th>Edukiera</th>
               </tr>
             </thead>
             <tbody>
@@ -52,17 +61,17 @@
     </div>
 
     <div id="reserva"> <br>
-        <label for="Id_exc" id="labelExc">IRTEERA ID</label><br>
+        <label for="Id_exc" id="labelExc"> ID IRTEERA</label><br>
         <input type="text" id="Id_exc"> <br><br>
 
-        <label for="DNI" id="labelDNI">NAN</label> <br>
+        <label for="DNI" id="labelDNI"> NAN</label> <br>
         <input type="text" id="DNI"><br><br>
         <button type="button" id="boton-descargar">Reserbatu</button>
     </div>
 
     <footer class="foot">
         <img src="Imagenes/image.png" alt="logo" id="imgF">
-        <p>© 2008 - 2025 GetYourGuide. Zurich eta Berlinen sortuta</p>
+        <p>© 2008 - 2025 GetYourGuide. Zurich y Berlines sortuta.</p>
     </footer>
 
     <script>
