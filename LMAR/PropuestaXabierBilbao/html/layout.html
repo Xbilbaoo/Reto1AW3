@@ -30,7 +30,22 @@
             <div></div>
         </header>
         <main>
-            <div></div>
+            <div>
+                <div class="carousel">
+                    <div class="carousel-images">
+                        <img src="../img/carousel/img1.webp" alt="Image 1" class="carousel-image active">
+                        <img src="../img/carousel/img2.webp" alt="Image 2" class="carousel-image">
+                        <img src="../img/carousel/img3.webp" alt="Image 3" class="carousel-image">
+                        <img src="../img/carousel/img4.webp" alt="Image 4" class="carousel-image">
+                    </div>
+                    <div class="carousel-buttons">
+                        <button class="carousel-button active-button" onclick="showImage(0)" data-image="../img/carousel/img1.webp">Cultura</button>
+                        <button class="carousel-button" onclick="showImage(1)" data-image="../img/carousel/img2.webp">Gastronomía</button>
+                        <button class="carousel-button" onclick="showImage(2)" data-image="../img/carousel/img3.webp">Naturaleza</button>
+                        <button class="carousel-button" onclick="showImage(3)" data-image="../img/carousel/img4.webp">Deporte</button>
+                    </div>
+                </div>
+            </div>
         </main>
         <aside>
             <div>
@@ -42,13 +57,15 @@
                     <img src="../img/logos/linkedin.png" alt="LinkedIn" class="socialmedia-icon" id="right-icon">
                 </div>
                 <div>
-                    <label for="newsletter" class="label-newsletter">Subscríbete a la Newsletter!!</label>
-                    <input type="email" id="newsletter" class="form-newsletter" placeholder="Correo electrónico">
-                    <button type="submit" class="sub-button">Subscribirse</button>
+                    <form method="get" action="/action_page.php">
+                        <label for="newsletter" class="label-newsletter">Subscríbete a la Newsletter!!</label>
+                        <input type="email" id="newsletter" class="form-newsletter" placeholder="Correo electrónico">
+                        <input type="submit" class="sub-button" value="Subscribirse">
+                    </form>
                 </div>
             </div>
             <div>
-                <div class="card d-none d-lg-block">
+                <div class="card d-block d-sm-none d-lg-block">
                     <img src="../img/cards/card1.jpg" class="card-img-top" alt="mujer flamenca con fondo rojo">
                     <div class="card-body">
                         <h5 class="card-title">TICKET DE ENTRADA</h5>
@@ -56,7 +73,7 @@
                             déjate cautivar.</p>
                     </div>
                 </div>
-                <div class="card d-none d-lg-block">
+                <div class="card d-block d-sm-none d-lg-block">
                     <img src="../img/cards/card2.jpg" class="card-img-top" alt="gente feliz dentro de un fiat 500">
                     <div class="card-body">
                         <h5 class="card-title">TOUR GUIADO</h5>
